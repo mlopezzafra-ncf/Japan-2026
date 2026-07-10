@@ -6057,6 +6057,28 @@ var CITY_MAPS = {
     ],
     airbnb: [
       {lat: 35.0118, lng: 135.7404, name: "Airbnb \u2014 Karen's Machiya · Kyoto I", dates: "July 10\u201314 (check-out July 14)", addr: "Nishinoky\u014d Nishigekk\u014dch\u014d, Nakagyo-ku, Kyoto · Conf. HMB4Z95YBC"}
+    ],
+    temples: [
+      [35.0072, 135.7748, "Kenninji 建仁寺 — Oldest Zen Temple in Kyoto (est. 1202)", "orange",
+        "Day 03 · Jul 11 · 10 AM · 7–10 min walk south from Kodai-ji",
+        "Founded by Eisai in 1202 — the monk who introduced Rinzai Zen and tea to Japan from Song China. The Chŏŏn-dŏ hall ceiling: twin dragon painting by Koizumi Junsaku (2002), 11.4 m × 15.7 m over 108 tatami. Tawaraya Sŏtatsu Fujin/Raijin screens (reproductions on display; originals at Kyoto National Museum) — finest Rinpa paintings in existence. Today’s jiriki/tariki axis: Zen self-power (here) vs. Pure Land other-power (Kyŏsen-ji, 6:30 AM).",
+        "¥600 · Open 10AM–5PM · Gion-Shijŏ Station"],
+      [35.0094, 135.7833, "Shōren-in 青蓮院 — 800-Year Camphor Trees", "green",
+        "Day 03 · Jul 11 · 10:30 AM · 15–18 min walk north from Kenninji",
+        "Tendai Buddhist monzeki temple (imperial-family abbots). Five camphor trees over 800 years old; the largest is 7 m in circumference. Tendai is the mother school: both Eisai (Zen, Kenninji) and Hōnen (Pure Land, Chion-in) were Tendai-trained before founding their own sects. Vivid blue iconography rare in Kyoto. Short visit (20 min) essential for sectarian range.",
+        "¥500 · Open 9AM–5PM · Jingū-Maru-ta-machi Station"],
+      [35.0076, 135.7846, "Chion-in 知恩院 — Japan’s Largest Sanmon Gate", "red",
+        "Day 03 · Jul 11 · 11 AM · 3–5 min walk south through Maruyama Park",
+        "Headquarters of Jōdo (Pure Land) Buddhism — parent tradition of Shinran’s Jōdo Shinshū (Kyŏsen-ji, 6:30 AM). Founded 1234 on the site where Hōnen (1133–1212) lived and died. Sanmon gate (1621): 24 m high, 50 m wide, largest wooden gate in Japan. Great bell: 74 tonnes, 17 monks to ring at New Year. Hōnen and Shinran were master and student — today you visit both sides of that theological rupture.",
+        "Free · Inner garden ¥500 optional · Open 9AM–4:30PM"],
+      [35.0040, 135.7800, "Maruyama Park 丸山公園 — Between Shōren-in & Chion-in", "green",
+        "Day 03 · Jul 11 · Route connector · 3 min walk",
+        "Kyoto’s oldest public park (est. 1886). The direct path from Shōren-in to Chion-in passes through it. Lush and green in July. The giant weeping cherry (bare in summer) anchors the central pond.",
+        "Free · Open 24hr"],
+      [35.0145, 135.7390, "Kyŏsen-ji 教宣寺 — Morning Run Discovery", "orange",
+        "Day 03 · Jul 11 · 6:30 AM · 10–15 min run from machiya",
+        "A living Jōdo Shinshū (True Pure Land) parish temple — a danka-dera, not a tourist site. Shinran (1173–1263) taught tariki (reliance on Amida Buddha’s Original Vow / hongan): the nembutsu is gratitude for salvation already given, not a meritorious act. The Tokugawa-era terauke system made every household register with a local temple; thousands of small temples like this one were the real infrastructure of Japanese Buddhist life for 400+ years. Simple hondŏ centered on Amida image.",
+        "Neighborhood run stop (approx. location) · Jōdo Shinshū · Near machiya Nakagyo-ku"]
     ]
   },
   'fuji': {
@@ -6328,6 +6350,13 @@ function makeGuptaIcon() {
   });
 }
 
+function makeBuddhaIcon(col) {
+  return L.divIcon({
+    html: '<div style="background:'+(col||'#7A5230')+';color:white;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:16px;border:2.5px solid white;box-shadow:0 2px 8px rgba(0,0,0,.4);line-height:1">&#9784;</div>',
+    iconSize:[30,30], iconAnchor:[15,15], className:''
+  });
+}
+
 function buildGuptaPopup(g) {
   var html = '<div style="font-family:EB Garamond,Georgia,serif;max-width:260px;padding:2px 0">';
   html += '<div style="font-family:Space Mono,monospace;font-size:8px;color:#0B7A8A;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px">Gupta Family Hotel</div>';
@@ -6398,6 +6427,16 @@ function initCityMap(city) {
       L.marker([g.lat, g.lng], {icon: makeGuptaIcon(), zIndexOffset: 900})
         .addTo(m)
         .bindPopup(buildGuptaPopup(g), {maxWidth: 300});
+    });
+  }
+
+  // Buddhist temple markers with dharma-wheel (☸) icon
+  if (cfg.temples && cfg.temples.length) {
+    cfg.temples.forEach(function(mk) {
+      var col = COLORS[mk[3]] || '#7A5230';
+      L.marker([mk[0], mk[1]], {icon: makeBuddhaIcon(col), zIndexOffset: 800})
+        .addTo(m)
+        .bindPopup(buildPopup(mk), {maxWidth: 320});
     });
   }
 
