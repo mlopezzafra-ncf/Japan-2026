@@ -190,6 +190,8 @@ body{font-family:'EB Garamond',Georgia,serif;background:var(--paper);color:var(-
 .cal-day{border-radius:3px;padding:7px 7px 9px;min-height:86px;position:relative;background:white;border:1px solid var(--border);transition:transform 0.15s;cursor:default}
 .cal-day:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.08);z-index:1}
 .cal-day.empty,.cal-day.pre,.cal-day.post{background:transparent;border-color:transparent;min-height:0;cursor:default}
+.cal-day:not(.pre):not(.post):not(.empty){transition:filter .15s}
+.cal-day:not(.pre):not(.post):not(.empty):hover{filter:brightness(.88);outline:2px solid rgba(255,255,255,.4)}
 .cal-day.pre .dn,.cal-day.post .dn{color:#C8C0B8}
 .dn{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;line-height:1;margin-bottom:5px}
 .dloc{font-family:'Noto Serif JP',serif;font-size:11px;font-weight:700;line-height:1.2;margin-bottom:3px}
@@ -561,10 +563,10 @@ function checkPassword(){
   <div class="dnote">Shinkansen · Tō-ji · Nishiki · Gion</div>
 </div>
 <div class="cal-day kyoto">
-  <span class="dicon">🎮</span>
+  
   <div class="dn">11</div>
   <div class="dloc">Kyoto</div>
-  <div class="dnote">Kodai-ji · Higashiyama Walk · Gion</div>
+  <div class="dnote">Kodai-ji · Kenninji · Gion Matsuri</div>
 </div>
 <div class="cal-day kyoto">
   
@@ -5757,6 +5759,48 @@ function showPane(id) {
   window.scrollTo(0,0);
 }
 
+function goToDay(pane, dayNum) {
+  showPane(pane);
+  var padded = 'Day ' + (dayNum < 10 ? '0' : '') + dayNum;
+  setTimeout(function() {
+    var spans = document.querySelectorAll('.day-num');
+    for (var i = 0; i < spans.length; i++) {
+      if (spans[i].textContent.trim() === padded) {
+        var card = spans[i].closest('.day-card');
+        if (card) card.scrollIntoView({behavior:'smooth', block:'start'});
+        break;
+      }
+    }
+  }, 160);
+}
+
+(function() {
+  var CAL_NAV = {
+    8:['tokyo',1], 9:['tokyo',1],
+    10:['kyoto-i',2], 11:['kyoto-i',3], 12:['kyoto-i',4], 13:['kyoto-i',5],
+    14:['tokyo-ii',6], 15:['tokyo-ii',7],
+    16:['fuji',8],
+    17:['hokkaido',9], 18:['hokkaido',10], 19:['hokkaido',11],
+    20:['kyoto-ii',12], 21:['kyoto-ii',13],
+    22:['kumano',14], 23:['kumano',15], 24:['kumano',16],
+    25:['ise',17],
+    26:['hiroshima',18],
+    27:['tokyo-final',19], 28:['tokyo-final',20], 29:['tokyo-final',21]
+  };
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.cal-day:not(.pre):not(.post):not(.empty)').forEach(function(cell) {
+      var dnEl = cell.querySelector('.dn');
+      if (!dnEl) return;
+      var date = parseInt(dnEl.textContent, 10);
+      if (!CAL_NAV[date]) return;
+      var nav = CAL_NAV[date];
+      cell.style.cursor = 'pointer';
+      cell.setAttribute('title', 'Click to go to Day ' + nav[1] + ' activities');
+      cell.addEventListener('click', function() { goToDay(nav[0], nav[1]); });
+    });
+  });
+})();
+
 function showCityTab(city, tab) {
   document.querySelectorAll('.ctp-' + city).forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.cst-' + city).forEach(b => b.classList.remove('active'));
@@ -6570,7 +6614,7 @@ document.addEventListener('DOMContentLoaded', function() {
 var DAYS = [
   {day:1, date:'July 9', dow:'Thursday', city:'Tokyo', pane:'tokyo', title:'Arrival — Haneda', activities:['Arrive Haneda (HND) 5:20 PM on NH992 from KIX','Keikyu Line or monorail from Haneda to central Tokyo','Check in: Sumida Airbnb (3-12-3 Taihei, Sumida City)','Ramen dinner nearby — Ichiran (solo booths, ~¥1,000)','Get Suica/Pasmo Passport at HND if not done at KIX'], transport:'PRE-TRIP Jul 7: Budget rental van Conf. #49051310US0 · Pick up SRQ noon → drop TPA by 5AM Jul 8 · NH992 KIX→HND 3:50PM-5:20PM · Only 1hr connection at KIX! · JULIAN SEPARATE: UA2225 ALB→ORD + UA7938 ORD→NRT arrives 3:10PM Thu Jul 9 · Conf. CW18V6'},
   {day:2, date:'July 10', dow:'Friday', city:'Kyoto', pane:'kyoto-i', title:'Tokyo → Kyoto · Tō-ji', activities:['Morning: NOZOMI 9 · SmartEX Res. #2002 · Depart Tokyo 7:12 AM · Arrive Kyoto ~9:18 AM · ¥11,100/person (¥66,600 total) · Car 3 Rows 11–12 · Seats 12-A/B/C/D/E + 11-E · 12-E and 11-E are south (Fuji-side) windows','Late morning: Tō-ji (東寺, 15-min walk south of Kyoto Station, ¥500) — Kōdō mandala hall: 21 9th-c. statues arranged as 3D Shingon mandala with Dainichi Nyorai at center; 5-story pagoda 57m (tallest wooden pagoda in Japan)','Not the 21st → no Kōbō-san flea market, calm scholarly visit','Alternative: Nishi Hongan-ji (Jōdo Shinshū, Momoyama architecture, free, 5 min from station)','Afternoon: Check into Karen\'s Airbnb machiya · Nishiki Market + Teramachi stationery (Kyukyodo est. 1663, Kamiji Kakimoto — both open Fridays)','Evening: Gion walk (Hanamikoji-dori at dusk) · Dinner: Omen Gion (udon) or Menbakaichidai (fire ramen, book ahead)'], transport:'✅ Nozomi 9 · SmartEX Res. #2002 · Depart Tokyo 7:12 AM · Arrive Kyoto ~9:18 AM · Car 3 Rows 11–12 · ¥66,600 · 15-min walk Kyoto Station → Tō-ji'},
-  {day:3, date:'July 11', dow:'Saturday', city:'Kyoto', pane:'kyoto-i', title:'Higashiyama Walk & Gion', activities:['Morning: Kodai-ji temple — Momoyama lacquerwork, Sen no Rikyu tea houses, bamboo grove (9 AM, ¥600)','Walk south through Higashiyama: Ninenzaka → Sannenzaka (cobbled Edo lanes, 729 AD) → Yasaka Pagoda → Kiyomizudera (¥500)','Alternative: Go north — Maruyama Park → Shōren-in → Chion-in (quieter, more contemplative)','Late afternoon: hoko going up near machiya — Gion Matsuri float assembly (July 10–14, nawashime rope lashing, no nails)','Evening: Hanamikoji-dori Gion walk then dinner. Kikunoi Honten ★★★ (reserve now: +81-75-561-0015) or Omen Gion (udon, walk-in)'], transport:'Walk Kodai-ji → Higashiyama lanes · City bus or taxi back to machiya'},
+  {day:3, date:'July 11', dow:'Saturday', city:'Kyoto', pane:'kyoto-i', title:'Kodai-ji · Kenninji · Gion Matsuri', activities:['9AM: Kodai-ji 高台寺 — Momoyama lacquerwork, Sen no Rikyu tea houses, bamboo grove (¥600)','10AM: Kenninji 建仁寺 — oldest Zen temple in Kyoto (est. 1202, Eisai), twin dragon ceiling, Fujin/Raijin Sōtatsu screens (¥600, 5 min walk)','10:30AM: Shōren-in 青蓮院 — 800-year camphor trees, Tendai Buddhist (¥500)','11AM: Chion-in 知恩院 — Japan\'s largest sanmon gate (24m high, 50m wide), Pure Land Buddhist HQ (free); Maruyama Park connects the route','11:30AM: Gion Matsuri float walk — Shijo/Karasuma area; nawashime rope lashing, no nails, no ticket needed (free)','12:30PM: Omen Gion udon lunch (walk-in, ¥1,500) or Nishiki picnic','Afternoon: free time in Higashiyama/Gion; optional Isetan depachika at Kyoto Station B1–B2 food halls','Nintendo Museum (Uji) — NOT on itinerary; lottery tickets were not obtained'], transport:'Walk: Kodai-ji → Kenninji → Shōren-in → Chion-in (all within 1km) · Gion Matsuri area 15 min walk · city bus back to machiya'},
   {day:4, date:'July 12', dow:'Sunday', city:'Kyoto', pane:'kyoto-i', title:'Arashiyama & Otagi Nenbutsu-ji', activities:['8:30AM: Tenryu-ji (UNESCO, Muso Soseki garden, borrowed Arashiyama scenery)','Bamboo Grove immediately north of Tenryu-ji','Otagi Nenbutsu-ji (1,200 unique stone rakan statues carved 1981–1991)','Afternoon free in Arashiyama','Stay in Kyoto machiya (July 10–13)'], transport:'Sagano/San-in Line or bus to Arashiyama'},
   {day:5, date:'July 13', dow:'Sunday', city:'Kyoto', pane:'kyoto-i', title:'Ryoan-ji · Kinkaku-ji · Daitoku-ji', activities:['8AM: Ryoan-ji rock garden (15 stones, Muromachi period)','Kinkaku-ji (Golden Pavilion — expect crowds, go early)','Daitoku-ji Zen complex (multiple sub-temples, some tea ceremony options)','Final Kyoto I dinner: Mishima-tei (sukiyaki, est. 1873) or kikunoi Roan','TONIGHT: Ship bags to Tokyo via Yamato/7-Eleven before 6PM'], transport:'City bus (Day Pass ¥700) — Ryoan-ji → Kinkaku-ji → Daitoku-ji loop'},
   {day:6, date:'July 14', dow:'Monday', city:'Tokyo', pane:'tokyo-ii', title:'Return to Tokyo · Meiji Shrine', activities:['✅ Nozomi 78 · SmartEX Res. #2003 · Depart Nagoya 9:06 AM → Arrive Tokyo 10:45 AM · ¥65,400 group','Check into Mic House Shinjuku Airbnb (1-17-8 Nishiochiai, Shinjuku-ku)','Afternoon: Meiji Jingu (forested approach, 100,000 trees, State Shinto)','Imperial Palace East Gardens (former Edo Castle site, free, Tue–Sun)','Dinner: Tsukiji Outer Market area or Sushi no Midori','Guptas at Hyatt Centric Ginza (July 13–17) — 30 min from Shinjuku'], transport:'✅ Nozomi 78 · SmartEX Res. #2003 · Nagoya 9:06 AM → Tokyo 10:45 AM · ¥10,900/person'},
