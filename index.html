@@ -67,6 +67,12 @@ body{font-family:'EB Garamond',Georgia,serif;background:var(--paper);color:var(-
 .day-hdr h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:400}
 .day-num{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mist)}
 .day-body{padding:24px 28px}
+.day-summary{background:#F2F7F2;border:1px solid #D3E0D3;border-left:3px solid var(--green);border-radius:2px;padding:15px 20px 16px;margin-bottom:26px}
+.day-summary .ds-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--green);margin-bottom:9px;display:flex;align-items:center;gap:7px}
+.day-summary .ds-hl{font-family:'Playfair Display',serif;font-size:17px;font-weight:400;line-height:1.4;color:var(--ink);margin-bottom:8px}
+.day-summary p{font-size:14.5px;line-height:1.72;color:#48443D;margin:0}
+.day-summary.done{background:#FBF6EC;border-left-color:var(--gold)}
+.day-summary.done .ds-label{color:#9A7B22}
 .tblock{margin-bottom:24px}
 .tblock:last-child{margin-bottom:0}
 .tlabel{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
@@ -934,6 +940,7 @@ function checkPassword(){
     <div class="sec">
 <div class="day-card"><div class="day-hdr"><h3>Wed–Thu, July 8–9 — Travel Day · Tampa → Tokyo</h3><span class="day-num">Day 01</span></div>
 <div class="day-body">
+<div class="day-summary done"><div class="ds-label">✦ Recap — the day we had</div><div class="ds-hl">Wheels up from Tampa, wheels down in Tokyo.</div><p>Our long travel day — Tampa to San Francisco to Osaka to Tokyo, landing near the Sumida River. First night in Japan was a sushi dinner at Maguro-bito and a late konbini run. Nothing to see but the insides of three airplanes; the real trip starts tomorrow.</p></div>
 <div class="tblock"><div class="tlabel">Tuesday July 7 · Pick Up Rental Van — SRQ → Tampa · CONFIRMED ✅</div>
 <div class="conf-box" style="background:#FFF8F0;border:1.5px solid #E8601C;border-radius:8px;padding:14px 16px;margin-bottom:12px;font-size:14px;line-height:1.8">
   <div style="font-weight:700;font-size:15px;color:#C04800;margin-bottom:6px">✅ Budget — Confirmation #49051310US0 · $59.24 est. total</div>
@@ -1380,6 +1387,7 @@ Edo — Tokyo's former name — became Japan's administrative capital in 1603 un
     <div class="sec">
 <div class="day-card"><div class="day-hdr"><h3>Tuesday, July 14 — Return · Meiji Shrine · Imperial Palace East Gardens</h3><span class="day-num">Day 06</span></div>
 <div class="day-body">
+<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">Back to Tokyo — Meiji Shrine's forest and the palace gardens.</div><p>We ride the Shinkansen back to Tokyo and settle into Shinjuku. Meiji Shrine sits inside a hand-planted forest in the middle of the city, and the Imperial Palace East Gardens are the old castle grounds. An easier, greener day — and our first chance to meet up with the Gupta family, now in Ginza.</p></div>
 <div class="tblock"><div class="tlabel">Morning · Nozomi 78 — Nagoya → Tokyo · CONFIRMED ✅</div>
 <div class="conf-box" style="background:#F0FFF4;border:1.5px solid #2D5A3D;border-radius:6px;padding:10px 14px;margin:8px 0;font-size:13px;line-height:1.7;font-family:'Space Mono',monospace">
   <div style="font-weight:700;font-size:15px;color:#1A3D28;margin-bottom:4px">✅ SmartEX · Reservation #2003 · ¥65,400 · 6 Adults</div>
@@ -1404,6 +1412,7 @@ They arrive a day before us (July 13, while we're still in Kyoto) and check out 
 
 <div class="day-card"><div class="day-hdr"><h3>Wednesday, July 15 — Sensoji, Tokyo National Museum & Ghibli</h3><span class="day-num">Day 07</span></div>
 <div class="day-body">
+<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">Old Tokyo at Sensoji, museum treasures, and Ghibli.</div><p>Asakusa's Sensoji is Tokyo's oldest temple, with its giant lantern gate and souvenir street. Then the Tokyo National Museum for samurai swords and painted screens, and — the one the kids have been waiting for — the world of Studio Ghibli. A day that swings from ancient to pure whimsy.</p></div>
 <div class="tblock"><div class="tlabel">Morning · Sensoji, Asakusa</div>
 <p><strong>Sensoji</strong> (founded 628 AD) is Tokyo's oldest Buddhist temple and its most visited. Arrive at 7:30–8 AM before crowds. The main hall is consecrated to <em>Kannon Bosatsu</em> (Avalokiteśvara, Bodhisattva of Compassion) — a golden image said to have been found in the Sumida River by two fishermen, and never displayed publicly in over 1,000 years. The <em>omikuji</em> fortune-draw ritual is worth doing with the kids.</p>
 <p>For the iconography of Kannon in Japanese Buddhism, see <a href="http://www.thezensite.com/" target="_blank" rel="noopener" class="sl">The Zen Site</a> and <a href="https://www.sacred-texts.com/bud/index.htm" target="_blank" rel="noopener" class="sl">Sacred Texts Buddhist Archive</a>. The distinction between the historical Buddha and bodhisattva figures like Kannon is central to Mahāyāna doctrine — see <a href="https://plato.stanford.edu/entries/japanese-zen/" target="_blank" rel="noopener" class="sl">Stanford Encyclopedia of Philosophy on Japanese Zen</a> for the philosophical grounding.</p>
@@ -1485,6 +1494,7 @@ They're at the Hyatt Centric Ginza through July 17. Consider coordinating dinner
     <div class="sec">
 <div class="day-card"><div class="day-hdr"><h3>Friday, July 10 — Tokyo → Kyoto · Tō-ji</h3><span class="day-num">Day 02</span></div>
 <div class="day-body">
+<div class="day-summary done"><div class="ds-label">✦ Recap — the day we had</div><div class="ds-hl">Bullet train to Kyoto — Tō-ji temple and Nishiki Market.</div><p>We took the Shinkansen down to Kyoto and moved into Karen's machiya, our traditional wooden townhouse for four nights. The afternoon was Tō-ji, the temple with Japan's tallest wooden pagoda, then grazing through Nishiki Market — Kyoto's 400-year-old covered food street — for gyoza, yuba, udon and squid on a stick.</p></div>
 <div class="tblock"><div class="tlabel">Morning · Shinkansen — Tokyo → Kyoto · CONFIRMED ✅</div>
 <div class="conf-box" style="background:#f0f7f0;border:1.5px solid #2D5A3D;border-radius:8px;padding:14px 16px;margin-bottom:12px;font-size:14px;line-height:1.8">
   <div style="font-weight:700;font-size:15px;color:#2D5A3D;margin-bottom:6px">✅ SmartEX — Reservation #2002 · ¥66,600 total (6 adults)</div>
@@ -1547,6 +1557,7 @@ Not in Nishiki Market itself — this shop is near <strong>Imamiya Shrine</stron
 
 <div class="day-card"><div class="day-hdr"><h3>Saturday, July 11 &#8212; Morning Run &#xb7; Kiyomizudera &#xb7; Kodai-ji &#xb7; Gion Matsuri</h3><span class="day-num">Day 03</span></div>
 <div class="day-body">
+<div class="day-summary done"><div class="ds-label">✦ Recap — the day we had</div><div class="ds-hl">The Higashiyama temples and the Gion Matsuri floats going up.</div><p>A morning run, then the classic eastern-hills walk: Kiyomizudera's great wooden stage, Kodai-ji's gardens, and the old stone lanes of Sannenzaka. In the streets, neighborhood teams were raising the towering Gion Matsuri festival floats — lashed together with rope, no nails. Handmade soba for lunch and pressed-mackerel sushi for dinner.</p></div>
 
 <div class="tblock" style="background:#F0F7FF;border-left:3px solid #1B3A6B;padding-left:0">
 <div class="tlabel" style="background:#1B3A6B;color:#fff;padding:5px 14px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.05em">DAY ARC &#xb7; TRANSPORT MAP &#8212; SATURDAY JULY 11</div>
@@ -1631,6 +1642,7 @@ Not in Nishiki Market itself — this shop is near <strong>Imamiya Shrine</stron
 
 <div class="day-card"><div class="day-hdr"><h3>Sunday, July 12 — Zen Gardens &amp; Philosopher's Path</h3><span class="day-num">Day 04</span></div>
 <div class="day-body">
+<div class="day-summary done"><div class="ds-label">✦ Recap — the day we had</div><div class="ds-hl">The three great pavilions — the rock garden, the Golden and the Silver.</div><p>Our northwest Kyoto day: Ryōan-ji's famous rock garden (fifteen stones you can never see all at once), the dazzling Golden Pavilion (Kinkaku-ji), and the quieter Silver Pavilion (Ginkaku-ji). We ran short on time and skipped Nanzen-ji and Kennin-ji. In the evening the kids went to a pig café while Pam and I visited the Traveler's Company store, then we had dinner back in our own neighborhood.</p></div>
 
 <div class="tblock" style="background:#F0F7FF;border-left:3px solid #1B3A6B;padding-left:0">
 <div class="tlabel" style="background:#1B3A6B;color:#fff;padding:5px 14px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.05em">DAY ARC · TRANSPORT MAP — SUNDAY JULY 12</div>
@@ -1642,9 +1654,9 @@ Not in Nishiki Market itself — this shop is near <strong>Imamiya Shrine</stron
 <tr><td style="color:#888;white-space:nowrap;padding-right:16px;vertical-align:top">12:30 PM</td><td><strong>Lunch</strong> · near Ginkaku-ji · small cafés and soba spots on Imadegawa-dōri</td></tr>
 <tr><td style="color:#888;white-space:nowrap;padding-right:16px;vertical-align:top">1:30 PM</td><td><strong>Ginkaku-ji</strong> 銀閣寺 · Silver Pavilion (never silver) + sand cone garden · ¥500</td></tr>
 <tr><td style="color:#888;white-space:nowrap;padding-right:16px;vertical-align:top">2:00 PM</td><td><strong>Philosopher's Path</strong> 哲学の道 · Walk south 30 min along the canal toward Nanzen-ji</td></tr>
-<tr><td style="color:#888;white-space:nowrap;padding-right:16px;vertical-align:top">2:30 PM</td><td><strong>Nanzen-ji</strong> 南禅寺 · Sanmon gate (climb it) + Meiji aqueduct walk-through · grounds free · Sanmon ¥600</td></tr>
-<tr><td style="color:#888;white-space:nowrap;padding-right:16px;vertical-align:top">4:15 PM</td><td><strong>Kennin-ji</strong> 建仁寺 · OPTIONAL · 12-min taxi into Gion · last entry 16:30 · ¥800 · drop if wilting</td></tr>
-<tr><td style="color:#888;white-space:nowrap;padding-right:16px;vertical-align:top">Evening</td><td><strong>Dinner Gion / Pontochō</strong> · kawadoko riverside terraces · No bag shipping tonight — that's tomorrow</td></tr>
+<tr style="opacity:0.55"><td style="color:#888;white-space:nowrap;padding-right:16px;vertical-align:top">2:30 PM</td><td><span style="text-decoration:line-through"><strong>Nanzen-ji</strong> 南禅寺 · Sanmon gate + Meiji aqueduct</span> · <span style="color:#B0392B;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1px">✕ NOT VISITED — ran short on time</span></td></tr>
+<tr style="opacity:0.55"><td style="color:#888;white-space:nowrap;padding-right:16px;vertical-align:top">4:15 PM</td><td><span style="text-decoration:line-through"><strong>Kennin-ji</strong> 建仁寺 · OPTIONAL · Gion</span> · <span style="color:#B0392B;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1px">✕ NOT VISITED — dropped</span></td></tr>
+<tr><td style="color:#888;white-space:nowrap;padding-right:16px;vertical-align:top">Evening</td><td><strong>Kids → pig café</strong> · <strong>Pam &amp; Manuel → Traveler's Company store</strong> · dinner back in our neighborhood · No bag shipping tonight — that's tomorrow</td></tr>
 </table>
 </div>
 
@@ -1679,8 +1691,9 @@ Not in Nishiki Market itself — this shop is near <strong>Imamiya Shrine</stron
 <div class="tags"><span class="tag t-see">Ginkaku-ji ¥500 · Opens 8:30 AM–5:00 PM (Oct–Mar: closes 4:30)</span><span class="tag t-tip">Philosopher's Path runs south from Ginkaku-ji gate toward Nanzen-ji · ~30 min walk · Canal-side cafés for a break · Cherry trees; famous in April</span><span class="tag t-transit">🚕 Taxi from Kinkaku-ji ~35 min across the city · or Bus #204 or #203 to Ginkakuji-mae stop (40 min · ¥230/person)</span></div>
 </div>
 
-<div class="tblock">
+<div class="tblock" style="opacity:0.6">
 <div class="tlabel">2:30 PM · Nanzen-ji 南禅寺 — Sanmon Gate &amp; the Meiji Aqueduct</div>
+<div style="background:#FBEEEC;border-left:3px solid #B0392B;padding:8px 12px;margin-bottom:10px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1px;color:#B0392B">✕ NOT VISITED — we ran short on time and skipped this on July 12. Left here as a note of what was planned.</div>
 <p>Japan's highest-ranked Zen temple complex has a brick aqueduct from 1890 running straight through it. The combination sounds wrong; it is not. The Sanmon gate stands 22 meters tall and you can climb up inside to look out over the temple rooftops and toward the city. Then walk east and find the aqueduct arches — Romanesque brick, still carrying water from Lake Biwa. It is one of Kyoto's strangest and most wonderful moments: industrial Victorian engineering passing through 700-year-old Zen grounds.</p>
 <div class="hbox">
 <div class="hbox-title">Rinzai Zen's Highest House &amp; the Lake Biwa Canal</div>
@@ -1689,8 +1702,9 @@ Not in Nishiki Market itself — this shop is near <strong>Imamiya Shrine</stron
 <div class="tags"><span class="tag t-see">Grounds free · Sanmon ¥600 (climb it) · Hōjō garden ¥600</span><span class="tag t-tip">5-min walk south from Philosopher's Path end · Sanmon interior worth the ¥600 — views over the temple complex · Aqueduct is east of the main gate complex</span><span class="tag t-transit">🚶 5-min walk south from the end of Philosopher's Path · or taxi from Ginkaku-ji ~¥800</span></div>
 </div>
 
-<div class="tblock">
+<div class="tblock" style="opacity:0.6">
 <div class="tlabel">4:15 PM · Kennin-ji 建仁寺 — OPTIONAL · Kyoto's Oldest Zen Temple</div>
+<div style="background:#FBEEEC;border-left:3px solid #B0392B;padding:8px 12px;margin-bottom:10px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1px;color:#B0392B">✕ NOT VISITED — this was the optional stop and we dropped it on July 12. Left here as a note of what was planned.</div>
 <p>Drop Kennin-ji if the pace has caught up — the day has been full, and the evening in Gion is worth protecting. But if you are on time: Kennin-ji is Kyoto's oldest Zen temple (founded 1202), and in the <em>Hattō</em> (法堂, Dharma Hall) — a room the size of a large gymnasium — two enormous dragons circle each other across a ceiling that spans 108 tatami mats. Last entry is strictly 16:30; do not attempt this after 16:15.</p>
 <div class="hbox">
 <div class="hbox-title">Eisai, Zen &amp; the Introduction of Tea to Japan</div>
@@ -1700,15 +1714,16 @@ Not in Nishiki Market itself — this shop is near <strong>Imamiya Shrine</stron
 </div>
 
 <div class="tblock">
-<div class="tlabel">Evening · Dinner in Gion / Pontochō</div>
-<p>Dinner in Gion or Pontochō. If the weather and the season allow, book a <em>kawadoko</em> (川床) table — the elevated terraces that extend over the Kamo River in summer (June through September), where you sit above the river with the city lit around you. No bag shipping tonight; that's tomorrow's task. Early start tomorrow: leave the machiya by 7:45 AM for the boat.</p>
-<div class="tags"><span class="tag t-eat">Gion / Pontochō dinner · Reserve kawadoko ahead if you want riverside seating</span><span class="tag t-tip">No bags tonight · Early start tomorrow — boat departs 9:00 AM · Leave machiya by 7:45 AM</span></div>
+<div class="tlabel">Evening · How the night actually went</div>
+<p>We split up for the evening. The kids headed off to a <strong>pig café</strong> — one of Japan's animal cafés, where the draw is hanging out with friendly miniature pigs. Pam and I made our own stop at the <strong>Traveler's Company store</strong> (Traveler's Factory Kyoto), the home of the cult Traveler's Notebook, and picked up a Kyoto-edition refill. We skipped the Gion/Pontochō kawadoko plan and instead had a relaxed <strong>dinner back in our own neighborhood</strong>. No bag shipping tonight — that's tomorrow's job. Early start ahead: leave the machiya by 7:45 AM for the boat.</p>
+<div class="tags"><span class="tag t-eat">Kids: pig café · Pam &amp; Manuel: Traveler's Company store · dinner in the neighborhood</span><span class="tag t-tip">No bags tonight · Early start tomorrow — boat departs 9:00 AM · Leave machiya by 7:45 AM</span></div>
 </div>
 
 </div></div>
 
 <div class="day-card"><div class="day-hdr"><h3>Monday, July 13 — Hozugawa River Descent &amp; Arashiyama</h3><span class="day-num">Day 05</span></div>
 <div class="day-body">
+<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">Down the Hozugawa gorge by boat, then the Arashiyama bamboo.</div><p>An early start for our booked 9:00 AM boat — a two-hour ride down the Hozugawa River through a green gorge, with boatmen poling through the rapids. It drops us right into Arashiyama for the soaring bamboo grove, the Togetsukyō bridge, and the monkey park for anyone game. Tonight we ship our bags ahead before we leave Kyoto.</p></div>
 
 <div class="tblock" style="background:#F0F7FF;border-left:3px solid #1B3A6B;padding-left:0">
 <div class="tlabel" style="background:#1B3A6B;color:#fff;padding:5px 14px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.05em">DAY ARC · TRANSPORT MAP — MONDAY JULY 13</div>
@@ -1810,6 +1825,7 @@ Drop bags at a <strong>7-Eleven near the Kyoto machiya tonight</strong> — look
 
 <div class="day-card"><div class="day-hdr"><h3>Thursday, July 16 — Hakone & Mt. Fuji</h3><span class="day-num">Day 08</span></div>
 <div class="day-body">
+<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">Mt. Fuji day — Hakone's lake, ropeway and steaming valley.</div><p>A day trip into the Hakone mountains, hoping for a clear view of Mt. Fuji. The classic loop: a cruise across Lake Ashi, a ropeway over the steaming Owakudani volcanic valley, and open-air art along the way. If Fuji shows its face, this is where we'll see it.</p></div>
 <div class="tblock"><div class="tlabel">Early Morning · Depart for Hakone (7 AM)</div>
 <p>Romancecar (Odakyu Line) from Shinjuku to Hakone-Yumoto (85 min, ¥2,470/person — NOT JR Pass). Early departure gives the best odds of clear Fuji views before afternoon cloud cover. July is peak summer — cloud cover after noon is common. Early is essential.</p>
 </div>
@@ -2177,6 +2193,7 @@ Drop bags at a <strong>7-Eleven near the Kyoto machiya tonight</strong> — look
 
 <div class="day-card"><div class="day-hdr"><h3>Friday, July 17 — Tokyo → Sapporo · Drive to Asahikawa · Biei</h3><span class="day-num">Day 09</span></div>
 <div class="day-body">
+<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">Fly north to Hokkaido and the surreal Blue Pond.</div><p>We fly up to Hokkaido, pick up our seven-seater, and drive north toward Asahikawa. First stop is the Shirogane Blue Pond — an impossibly turquoise pool with bare trees rising from it — and the patchwork farm hills of Biei. Hokkaido is Japan's wide-open north: cooler, greener, and far less crowded than the cities.</p></div>
 <div class="tblock"><div class="tlabel">Morning · Fly Tokyo → Sapporo (New Chitose) · Pick Up Rental Car</div>
 <p>Fly from Haneda to <strong>New Chitose Airport (CTS)</strong> (ANA/JAL, ~1h30m). <strong>Pick up the 7-seater rental car at New Chitose</strong> — all major agencies (Toyota, Nippon, Orix) are at the airport. International Driving Permit required. Drive north on the Hokkaido Expressway to <strong>Asahikawa (~2 hours)</strong>. This is where all car rentals are centered — driving from CTS is the correct logistics, not flying direct to Asahikawa.</p>
 </div>
@@ -2211,6 +2228,7 @@ Drop bags at a <strong>7-Eleven near the Kyoto machiya tonight</strong> — look
 
 <div class="day-card"><div class="day-hdr"><h3>Saturday, July 18 — Daisetsuzan & Ryokan Night</h3><span class="day-num">Day 10</span></div>
 <div class="day-body">
+<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">Into Daisetsuzan's mountains, then a ryokan and onsen night.</div><p>Today we go into Daisetsuzan, Japan's largest national park — a ropeway lifts us to 1,600m for alpine wildflowers, steaming vents, and a high mountain-pond loop. We end at a traditional ryokan: tatami rooms, a multi-course kaiseki dinner, and long soaks in the natural hot-spring baths. Probably the most relaxing night of the trip.</p></div>
 <div class="tblock"><div class="tlabel">Morning · Asahidake Ropeway & Hiking</div>
 <p><strong>Asahidake</strong> is Hokkaido's highest peak (2,291m) and the core of <strong>Daisetsuzan National Park</strong> — Japan's largest national park. Take the <strong>Asahidake Ropeway</strong> to the 1,600m station. In July: alpine wildflowers, volcanic fumaroles, and panoramic ridge views. This is your core nature day.</p>
 <p>Light hiking options from the ropeway top station: the <strong>Sugatami Pond Circuit</strong> (1.7km, ~1 hour, family-friendly) winds past steaming vents, mirror-still ponds, and snowfields that persist into July. For more challenge: the trail toward the summit (3-4 hrs round trip, intermediate).</p>
@@ -2275,6 +2293,7 @@ Drop bags at a <strong>7-Eleven near the Kyoto machiya tonight</strong> — look
 
 <div class="day-card"><div class="day-hdr"><h3>Sunday, July 19 — Souunkyo Gorge → Sapporo</h3><span class="day-num">Day 11</span></div>
 <div class="day-body">
+<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">Waterfalls at Souunkyo Gorge, then a seafood feast in Sapporo.</div><p>A morning soak and breakfast, then Souunkyo Gorge with its Ryusei and Ginga waterfalls, before we drive south to Sapporo. Hokkaido is Japan's seafood capital — crab, sea urchin, salmon roe — so tonight is our big seafood dinner. Early to bed; we fly to Osaka in the morning.</p></div>
 <div class="tblock"><div class="tlabel">Morning · Ryokan Breakfast & Onsen</div>
 <p>Wake at 5:30–6 AM for the outdoor rotenburo before other guests are up. Morning kaiseki breakfast: miso soup, grilled fish, rice, pickles, tamagoyaki, tofu. Allow 2+ hours before checkout.</p>
 </div>
@@ -2399,6 +2418,7 @@ Drop bags at a <strong>7-Eleven near the Kyoto machiya tonight</strong> — look
     <div class="sec">
 <div class="day-card"><div class="day-hdr"><h3>Monday, July 20 — Fly CTS → Osaka Itami · Osaka & Nara Day · Sleep Kyoto</h3><span class="day-num">Day 12</span></div>
 <div class="day-body">
+<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">Fly to Osaka, the deer and Great Buddha of Nara, sleep in Kyoto.</div><p>We fly back from Hokkaido to Osaka and spend the day in Nara — hundreds of tame, bowing deer and the enormous bronze Great Buddha in one of the largest wooden buildings on earth. We finish the day back in Kyoto, at our second machiya, for the last stretch of the trip.</p></div>
 
 <div class="tblock"><div class="tlabel">Early Morning · Drop Car at CTS · Depart on ANA NH772</div>
 <p>Return the Avis rental at <strong>New Chitose Airport (CTS)</strong> before the flight. <strong>ANA NH772</strong> departs <strong>CTS Terminal D at 8:35 AM</strong> — aim to have the car back by 7:30 AM. Early morning; set alarms well before 6 AM.</p>
@@ -2511,6 +2531,7 @@ Check-in July 20, check-out July 22 — same two nights as us. The hotel is ~1.5
 
 <div class="day-card"><div class="day-hdr"><h3>Tuesday, July 21 — Fushimi Inari at Dawn · Sanjusangendo · Uji: Byōdō-in &amp; Genji</h3><span class="day-num">Day 13</span></div>
 <div class="day-body">
+<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">Dawn at the thousand orange gates, then the tea town of Uji.</div><p>We go early to Fushimi Inari to climb through its thousands of vermilion torii gates before the crowds arrive. Then Sanjusangendo's hall of 1,001 golden Kannon statues, and out to Uji — Japan's matcha capital, home to the Byōdō-in temple on the ¥10 coin and the setting of the world's first novel, The Tale of Genji.</p></div>
 
 <div class="tblock"><div class="tlabel">Dawn · Fushimi Inari (Arrive 5:30 AM)</div>
 <p><strong>Fushimi Inari Taisha</strong> — thousands of vermilion torii gates winding up the sacred Mt. Inari. The total circuit is 4km; most visitors do only the lower section, but the upper mountain (2+ hours) is far more rewarding, quieter, and atmospherically charged. Arrive at dawn for mist through the gates and near-complete solitude. Open 24 hours. Take a taxi from the machiya (~20 min, ¥1,500) or walk to the nearest Kyoto City Bus stop.</p>
@@ -2683,6 +2704,7 @@ Tonight may be the last chance to say goodbye before the Kumano trail swallows u
 <!-- DAY 14 -->
 <div class="day-card"><div class="day-hdr"><h3>Wednesday, July 22 — Into Kumano</h3><span class="day-num">Day 14</span></div>
 <div class="day-body">
+<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">Leaving the cities for the sacred Kumano mountains.</div><p>We head into the Kii Peninsula and the Kumano Kodo, a network of pilgrimage trails walked through these forested mountains for over a thousand years. This is the wild, spiritual heart of the trip — fewer sights to tick off, more forest, shrines and quiet. A guesthouse night in Kumano.</p></div>
 
 <div class="tblock"><div class="tlabel">Morning · Depart Kyoto by 7:30 AM</div>
 <p>Depart Kyoto Station by <strong>7:30 AM at the latest</strong>. Take the <strong>JR Kuroshio Limited Express</strong> direct to <strong>Kii-Tanabe</strong> (~2.5 hours, ~¥5,500 pp, covered by JR Pass). From Kii-Tanabe Station, board the <strong>Ryujin Bus toward Hongu</strong> — this bus runs only a few times a day. Check the timetable at <a href="https://www.tb-kumano.jp/en/" target="_blank" rel="noopener" class="sl">tb-kumano.jp</a> and plan the whole morning backward from it. Arrive at <strong>Hosshinmon-Oji bus stop</strong> around noon. Even on the earliest train from Kyoto, starting at Hosshinmon-Oji (not Takijiri) is the right call for your group.</p>
@@ -2762,6 +2784,7 @@ While we settle into Yunomine Onsen guesthouse, Uday, Anita &amp; Ayaan check in
 <!-- DAY 15 -->
 <div class="day-card"><div class="day-hdr"><h3>Thursday, July 23 — The Sacred Descent to the Sea</h3><span class="day-num">Day 15</span></div>
 <div class="day-body">
+<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">A pilgrim's walk through cedar forest, and a temple-lodging night.</div><p>A day on the Kumano trails — mossy stone paths, torii gates, and grand shrines among towering cedars. Tonight we stay in a temple lodging (shukubo), the way pilgrims have rested for centuries: simple tatami rooms, vegetarian temple food, and deep quiet.</p></div>
 
 <div class="tblock"><div class="tlabel">7:00 AM · Walk: Dainichi-goe (Yunomine → Hongu Taisha)</div>
 <p><strong>3.4km · ~1 hour · easy.</strong> The original pilgrim route connecting the purification onsen to the shrine — pilgrims would bathe at Yunomine, then walk this path ritually to arrive at Hongu purified. A quiet, meditative forest climb and descent. Few tourists walk it. Start at 7:00 AM sharp.</p>
@@ -2832,6 +2855,7 @@ Uday, Anita &amp; Ayaan check out of the Hongu kominka this morning and check in
 <!-- DAY 16 -->
 <div class="day-card"><div class="day-hdr"><h3>Friday, July 24 — Nachi Taisha, Seiganto-ji & the Waterfall</h3><span class="day-num">Day 16</span></div>
 <div class="day-body">
+<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">The red pagoda and Japan's tallest waterfall at Nachi.</div><p>The signature image of the whole pilgrimage: Nachi Taisha shrine and Seiganto-ji's red pagoda framed against Nachi Falls, Japan's tallest single-drop waterfall at 133 meters. Afterward we begin making our way toward Ise. A short but spectacular day.</p></div>
 
 <div class="tblock"><div class="tlabel">Morning · Nachi Day-Trip from Shingu</div>
 <p>The temple lodging is in Shingu — take the JR Kisei Line toward Nachi (~20 min) or a local bus for the Daimonzaka approach. Early departure recommended; Nachi Taisha and the waterfall are best before the tourist crowds arrive. The Katsuura morning market (7:00–11:00 AM) is reachable on the way back from Nachi.</p>
@@ -2952,6 +2976,7 @@ Uday, Anita &amp; Ayaan are still at their Shingu Airbnb (Conf. HMBCHF9KHK) — 
     <div class="sec">
 <div class="day-card"><div class="day-hdr"><h3>Saturday, July 25 — Ise Jingu</h3><span class="day-num">Day 17</span></div>
 <div class="day-body">
+<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">Ise Jingu — the most sacred shrine in Japan.</div><p>Ise Jingu is Shinto's holiest site, dedicated to the sun goddess Amaterasu and rebuilt from scratch every twenty years. There's little to 'see' in the usual sense — it's about the ancient forest, the giant cypress, and the atmosphere. We'll also wander Okage Yokocho, the charming old shop-and-snack street by the shrine.</p></div>
 <div class="tblock"><div class="tlabel">Morning · Geku (Outer Shrine)</div>
 <p>The proper visiting order is Geku first. Geku enshrines <em>Toyouke Ōmikami</em>, the deity of food, agriculture, and textiles — a provisioner of the sacred. The unpainted cypress architecture, thatched roofs, and gravel paths establish an aesthetic vocabulary of radical reduction. No gilding, no color, no ornamentation. See <a href="https://www.isejingu.or.jp/en/" target="_blank" rel="noopener" class="sl">official Ise Jingu site</a> and <a href="http://eos.kokugakuin.ac.jp/modules/xwords/entry.php?entryID=1" target="_blank" rel="noopener" class="sl">Encyclopedia of Shinto on Ise</a> for the theological background of the shrine complex.</p>
 <div class="hbox"><strong>Ise and Shikinen Sengu</strong>Ise Jingu is the holiest site in Shinto and the spiritual home of the imperial family. The main shrine buildings are rebuilt exactly every 20 years in a ritual called <em>Shikinen Sengu</em> — performed continuously since 690 AD. The current structures date to 2013; the next rebuilding is 2033. The ritual keeps ancient construction techniques alive by transferring them from master to apprentice. The inner sanctum has never been photographed and is accessible only to the Emperor and highest priests. This perpetual renewal rather than preservation is philosophically opposed to Western monumentalism — the building is never old. See <a href="https://www.worldhistory.org/article/1438/ise-grand-shrine/" target="_blank" rel="noopener" class="sl">World History Encyclopedia on Ise</a> and <a href="http://eos.kokugakuin.ac.jp/modules/xwords/entry.php?entryID=1" target="_blank" rel="noopener" class="sl">Encyclopedia of Shinto on Amaterasu</a>.</div>
@@ -3026,6 +3051,7 @@ Uday, Anita &amp; Ayaan are still at their Shingu Airbnb (Conf. HMBCHF9KHK) — 
     <div class="sec">
 <div class="day-card"><div class="day-hdr"><h3>Sunday, July 26 — Peace Park & Miyajima</h3><span class="day-num">Day 18</span></div>
 <div class="day-body">
+<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">Hiroshima's Peace Park, and Miyajima's floating torii.</div><p>A day of two moods. The morning is Hiroshima's Peace Memorial Park and museum — moving and important, and worth gently preparing the kids for. The afternoon is Miyajima island, where the great vermilion torii gate seems to float on the sea at high tide, with more tame deer and grilled oysters to enjoy.</p></div>
 <div class="tblock"><div class="tlabel">Morning · Peace Memorial Museum (Arrive at Opening)</div>
 <p>The <strong>Hiroshima Peace Memorial Museum</strong> documents the morning of August 6, 1945 with extraordinary precision — the human scale, the immediate aftermath, and the decades of radiation illness that followed. The 2019 renovation placed individual human objects at the center: a child's lunch box, a tricycle, a school uniform, a shadow burned into stone. Allow 2–3 hours. Entry ¥200. See <a href="https://hpmmuseum.jp/" target="_blank" rel="noopener" class="sl">official museum site</a> for current exhibition details, and <a href="https://www.worldhistory.org/Hiroshima/" target="_blank" rel="noopener" class="sl">World History Encyclopedia on Hiroshima</a> for historical context. For pre-reading with younger travelers: <a href="https://www.sadako.org/" target="_blank" rel="noopener" class="sl">The Sadako Legacy Foundation</a>.</p>
 <p>The <strong>Atomic Bomb Dome (Genbaku Dome)</strong> — the skeletal remains of the Hiroshima Prefectural Industrial Promotion Hall, left standing as a memorial. It was directly beneath the detonation point and structurally survived through accident. The contrast between this ruin and the rebuilt, prosperous city is one of the most morally significant visual experiences in Japan.</p>
@@ -3111,6 +3137,7 @@ While we're in Hiroshima, the Gupta parents fly home from <strong>Tokyo Narita (
     <div class="sec">
 <div class="day-card"><div class="day-hdr"><h3>Monday, July 27 — Hiroshima → Tokyo · Creative Day</h3><span class="day-num">Day 19</span></div>
 <div class="day-body">
+<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">Back to Tokyo for a free, do-what-you-love creative day.</div><p>We travel from Hiroshima back to Tokyo and keep the day loose — a 'creative day' for everyone to chase their own thing: art, the anime districts, shopping, cameras, or a favorite neighborhood. After nearly three weeks of a full schedule, this is the day to follow your own map.</p></div>
 <div class="tblock"><div class="tlabel">Morning · Nozomi Shinkansen — Hiroshima → Tokyo</div>
 <p>Depart Hiroshima Station on the <strong>Nozomi shinkansen</strong> at 8–9 AM (~3h40m, ~¥17,000/person, ~¥102,000 for six). Arrive Tokyo Station by noon. Take the Yamanote Line to Takadanobaba or Shinjuku, then to the <strong>Mic House Shinjuku Airbnb</strong> (Nishiochiai). Drop bags, recharge, and head out — three full days left.</p>
 </div>
@@ -3131,6 +3158,7 @@ While we're in Hiroshima, the Gupta parents fly home from <strong>Tokyo Narita (
 
 <div class="day-card"><div class="day-hdr"><h3>Tuesday, July 28 — Last Full Day</h3><span class="day-num">Day 20</span></div>
 <div class="day-body">
+<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">Our last full day — favorites, souvenirs, one more of everything.</div><p>The final full day in Japan: time to go back to whatever we loved most, finish the souvenir list, and have one last great Tokyo dinner. We pack tonight — tomorrow we fly home.</p></div>
 <div class="tblock"><div class="tlabel">During the Day · Hanging with Andrew Balmuth</div>
 <p>Pam's friend <strong>Andrew Balmuth</strong> is in Tokyo — July 28 is the plan to spend time together. Andrew is a good Tokyo guide: coordinate the day around where he wants to take us, whether that's a neighborhood walk, a lunch spot he loves, or just catching up over coffee. Flexible day — build around Andrew's availability.</p>
 </div>
@@ -3156,6 +3184,7 @@ While we're in Hiroshima, the Gupta parents fly home from <strong>Tokyo Narita (
 
 <div class="day-card"><div class="day-hdr"><h3>Wednesday, July 29 — Departure</h3><span class="day-num">Day 21</span></div>
 <div class="day-body">
+<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">Sayonara, Japan — the long flight home.</div><p>Departure day. We make our way to Narita and fly home to Tampa via San Francisco, landing the same day thanks to the time difference. Three weeks and a whole country's worth of memories — home with full camera rolls and much heavier suitcases.</p></div>
 <div class="tblock"><div class="tlabel">Morning · Final Hours in Tokyo</div>
 <p>Departure at 5 PM means a genuinely leisurely morning. A last coffee walk — Nakameguro canal or Shimokitazawa's vintage shops. A final bowl of ramen at a neighborhood place that has no rating and needs none. Checkout from the Shinjuku Airbnb, leave bags by the door.</p>
 </div>
@@ -3635,6 +3664,32 @@ While we're in Hiroshima, the Gupta parents fly home from <strong>Tokyo Narita (
   <td style="font-weight:700;color:#1B5E20"><strong>$407.18</strong><br><small>&#xa5;60,234</small></td>
   <td style="color:#1B5E20;font-weight:700">$67.86/person</td>
 </tr>
+<!-- Day 4 receipts -->
+<tr style="background:#B8963A"><td colspan="5" style="color:#fff;font-weight:700;font-family:'Space Mono',monospace;font-size:12px;padding:8px 14px;letter-spacing:0.04em">🚶 DAY 4 · SUNDAY, JULY 12 · KYOTO · NW TEMPLES · ¥148 = $1</td></tr>
+<tr style="background:#FBF3E0"><td style="color:#7A5D12;font-weight:700">Day 4</td><td>Jul 12</td><td><strong>✅ 7-Eleven</strong> — 8:04 AM<br><small>Breakfast bento, onigiri, drinks, snacks for group</small></td><td><strong>$42.97</strong><br><small>¥6,360 · ¥148/$</small></td><td>Groceries</td></tr>
+<tr style="background:#FBF3E0"><td style="color:#7A5D12;font-weight:700">Day 4</td><td>Jul 12</td><td><strong>✅ Yamazaki-Ann</strong> — 12:17 PM<br><small>Soft serve ×4 (matcha, strawberry, choco ×2)</small></td><td><strong>$12.16</strong><br><small>¥1,800 · ¥148/$</small></td><td>Dining</td></tr>
+<tr style="background:#FBF3E0"><td style="color:#7A5D12;font-weight:700">Day 4</td><td>Jul 12</td><td><strong>✅ Kinkaku-ji Bamboo Café</strong> — 12:27 PM<br><small>Café drinks / snacks</small></td><td><strong>$12.16</strong><br><small>¥1,800 · ¥148/$</small></td><td>Dining</td></tr>
+<tr style="background:#FBF3E0"><td style="color:#7A5D12;font-weight:700">Day 4</td><td>Jul 12</td><td><strong>✅ Tsuruyoshi つる芳</strong> — 2:39 PM · group lunch<br><small>Miso nabe udon ×2, niku udon, kamo nanban, unagi donburi</small></td><td><strong>$83.24</strong><br><small>¥12,320 · ¥148/$</small></td><td>Dining</td></tr>
+<tr style="background:#FBF3E0"><td style="color:#7A5D12;font-weight:700">Day 4</td><td>Jul 12</td><td><strong>✅ Ryōan-ji 龍安寺</strong> — Group admission ×6<br><small>The rock garden · karesansui</small></td><td><strong>$21.62</strong><br><small>¥3,200 · ¥148/$</small></td><td>Culture</td></tr>
+<tr style="background:#FBF3E0"><td style="color:#7A5D12;font-weight:700">Day 4</td><td>Jul 12</td><td><strong>✅ Kinkaku-ji 金閣寺</strong> — Group admission ×6<br><small>The Golden Pavilion</small></td><td><strong>$21.62</strong><br><small>¥3,200 · ¥148/$</small></td><td>Culture</td></tr>
+<tr style="background:#FBF3E0"><td style="color:#7A5D12;font-weight:700">Day 4</td><td>Jul 12</td><td><strong>✅ Ginkaku-ji 銀閣寺</strong> — Group admission ×6<br><small>The Silver Pavilion + sand cone garden</small></td><td><strong>$35.14</strong><br><small>¥5,200 · ¥148/$</small></td><td>Culture</td></tr>
+<tr style="background:#FBF3E0"><td style="color:#7A5D12;font-weight:700">Day 4</td><td>Jul 12</td><td><strong>✅ Daiso</strong> — 9:39 AM<br><small>Keychains, ramune, rubber figure, petit blocks, drinks</small></td><td><strong>$7.84</strong><br><small>¥1,160 · ¥148/$</small></td><td>Shopping</td></tr>
+<tr style="background:#FBF3E0"><td style="color:#7A5D12;font-weight:700">Day 4</td><td>Jul 12</td><td><strong>✅ Sumikko Gurashi 堂</strong> — Ginkaku-ji · 4:12 PM<br><small>Character goods ×5</small></td><td><strong>$22.82</strong><br><small>¥3,377 · ¥148/$</small></td><td>Shopping</td></tr>
+<tr style="background:#FBF3E0"><td style="color:#7A5D12;font-weight:700">Day 4</td><td>Jul 12</td><td><strong>✅ Traveler's Factory Kyoto</strong> — 6:12 PM<br><small>Traveler's Notebook refill — Kyoto Edition</small></td><td><strong>$3.12</strong><br><small>¥462 · ¥148/$</small></td><td>Shopping</td></tr>
+<tr style="background:#FBF3E0"><td style="color:#7A5D12;font-weight:700">Day 4</td><td>Jul 12</td><td><strong>✅ Lawson</strong> — 5:51 PM<br><small>Japan NY cream bun</small></td><td><strong>$2.70</strong><br><small>¥400 · ¥148/$</small></td><td>Groceries</td></tr>
+<tr style="background:#FBF3E0"><td style="color:#7A5D12;font-weight:700">Day 4</td><td>Jul 12</td><td><strong>✅ Seiyu</strong> — 6:59 PM<br><small>Blueberry drink, green tea</small></td><td><strong>$1.53</strong><br><small>¥226 · ¥148/$</small></td><td>Groceries</td></tr>
+<tr style="background:#FBF3E0"><td style="color:#7A5D12;font-weight:700">Day 4</td><td>Jul 12</td><td><strong>✅ Daiso</strong> — 7:15 PM<br><small>Chair leg socks ×2</small></td><td><strong>$1.49</strong><br><small>¥220 · ¥148/$</small></td><td>Shopping</td></tr>
+<tr style="background:#FBF3E0"><td style="color:#7A5D12;font-weight:700">Day 4</td><td>Jul 12</td><td><strong>✅ 阪急 Oasis</strong> — 8:54 PM<br><small>Onigiri, kinpira gobo, goya chanpuru, snacks</small></td><td><strong>$9.64</strong><br><small>¥1,426 · ¥148/$</small></td><td>Groceries</td></tr>
+<tr style="background:#FBF3E0"><td style="color:#7A5D12;font-weight:700">Day 4</td><td>Jul 12</td><td><strong>✅ Pizza Hut</strong> — 9:04 PM<br><small>Garlic meat gourmet + Pepsi</small></td><td><strong>$10.27</strong><br><small>¥1,520 · ¥148/$</small></td><td>Dining</td></tr>
+<tr style="background:#FBF3E0"><td style="color:#7A5D12;font-weight:700">Day 4</td><td>Jul 12</td><td><strong>✅ KFC</strong> — 9:05 PM<br><small>Citrus chicken burger set + original chicken 2pc set</small></td><td><strong>$14.05</strong><br><small>¥2,080 · ¥148/$</small></td><td>Dining</td></tr>
+<tr style="background:#FBF3E0"><td style="color:#7A5D12;font-weight:700">Day 4</td><td>Jul 12</td><td><strong>✅ Bowl</strong><br><small>Tableware</small></td><td><strong>$13.51</strong><br><small>¥2,000 · ¥148/$</small></td><td>Misc</td></tr>
+<tr style="background:#FBF3E0"><td style="color:#7A5D12;font-weight:700">Day 4</td><td>Jul 12</td><td><strong>✅ Water</strong> — throughout the day<br><small>Bottled water for the group</small></td><td><strong>$13.51</strong><br><small>¥2,000 · ¥148/$</small></td><td>Misc</td></tr>
+<!-- Day 4 subtotal -->
+<tr style="background:#F3E5C0">
+  <td colspan="3" style="font-weight:700;color:#7A5D12">Day 4 Subtotal — July 12 · Kyoto · NW Temples<br><small style="font-weight:400;color:#555">dining $131.89 · groceries $56.84 · admissions $78.38 · shopping $35.26 · misc $27.03</small></td>
+  <td style="font-weight:700;color:#7A5D12"><strong>$329.40</strong><br><small>¥48,751</small></td>
+  <td style="color:#7A5D12;font-weight:700">$54.90/person</td>
+</tr>
 <!-- Day 5 receipts -->
 <tr style="background:#EDE7F6">
   <td style="color:#5E35B1;font-weight:700">Day 5</td>
@@ -3651,7 +3706,7 @@ While we're in Hiroshima, the Gupta parents fly home from <strong>Tokyo Narita (
 </tr>
 <tr class="total-row">
   <td colspan="3"><strong>Running Total — Actual Spend So Far</strong></td>
-  <td colspan="2"><strong>$1,493.50</strong><br><small>Pre-dep $85.75 &middot; Day 1 (Jul 9) $327.57 &middot; Day 2 (Jul 10) $506.78 &middot; Day 3 (Jul 11) $407.18 &middot; Day 5 (Jul 13) $166.22</small></td>
+  <td colspan="2"><strong>$1,822.90</strong><br><small>Pre-dep $85.75 &middot; Day 1 (Jul 9) $327.57 &middot; Day 2 (Jul 10) $506.78 &middot; Day 3 (Jul 11) $407.18 &middot; Day 4 (Jul 12) $329.40 &middot; Day 5 (Jul 13) $166.22</small></td>
 </tr>
 </tbody>
 </table>
@@ -3743,10 +3798,33 @@ While we're in Hiroshima, the Gupta parents fly home from <strong>Tokyo Narita (
 <tr class="total-row"><td colspan="2" style="font-size:13px">Day 3 Total</td><td style="text-align:right;font-weight:700;font-size:13px;white-space:nowrap">$581.93</td></tr>
 
 <!-- ═══════════════ DAY 4 ═══════════════ -->
-<tr style="background:#1B3A6B"><td colspan="3" style="color:#fff;font-weight:700;font-family:'Space Mono',monospace;font-size:11px;padding:8px 14px;letter-spacing:0.05em">DAY 4 &nbsp;·&nbsp; JUL 12 &nbsp;·&nbsp; KYOTO &nbsp;·&nbsp; ✅ $174.75 confirmed</td></tr>
+<tr style="background:#1B3A6B"><td colspan="3" style="color:#fff;font-weight:700;font-family:'Space Mono',monospace;font-size:11px;padding:8px 14px;letter-spacing:0.05em">DAY 4 &nbsp;·&nbsp; JUL 12 &nbsp;·&nbsp; KYOTO · NW TEMPLES &nbsp;·&nbsp; ✅ $504.15 confirmed</td></tr>
 <tr style="background:#F5F5F0"><td colspan="3" style="background:#F0F2F5;padding:5px 10px;font-size:12px;font-weight:700;color:#333">🏠 Lodging</td></tr>
 <tr><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px"></td><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px">Karen's Machiya &nbsp;·&nbsp; Kyoto I &nbsp;·&nbsp; night 3 of 4 &nbsp;·&nbsp; $699.00 ÷ 4</td><td style="text-align:right;font-weight:600;white-space:nowrap;padding:3px 10px">$174.75</td></tr>
-<tr class="total-row"><td colspan="2" style="font-size:13px">Day 4 Confirmed</td><td style="text-align:right;font-weight:700;font-size:13px;white-space:nowrap">$174.75</td></tr>
+<tr style="background:#F5F5F0"><td colspan="3" style="background:#F0F2F5;padding:5px 10px;font-size:12px;font-weight:700;color:#333">🍽 Dining</td></tr>
+<tr><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px"></td><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px">Tsuruyoshi つる芳 — group lunch &nbsp;·&nbsp; ¥12,320 (miso nabe udon ×2, niku udon, kamo nanban, unagi donburi)</td><td style="text-align:right;font-weight:600;white-space:nowrap;padding:3px 10px">$83.24</td></tr>
+<tr><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px"></td><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px">Yamazaki-Ann — soft serve ×4 &nbsp;·&nbsp; ¥1,800</td><td style="text-align:right;font-weight:600;white-space:nowrap;padding:3px 10px">$12.16</td></tr>
+<tr><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px"></td><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px">Kinkaku-ji Bamboo Café — café drinks/snacks &nbsp;·&nbsp; ¥1,800</td><td style="text-align:right;font-weight:600;white-space:nowrap;padding:3px 10px">$12.16</td></tr>
+<tr><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px"></td><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px">KFC — citrus chicken burger set + 2pc &nbsp;·&nbsp; ¥2,080</td><td style="text-align:right;font-weight:600;white-space:nowrap;padding:3px 10px">$14.05</td></tr>
+<tr><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px"></td><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px">Pizza Hut — garlic meat gourmet + Pepsi &nbsp;·&nbsp; ¥1,520</td><td style="text-align:right;font-weight:600;white-space:nowrap;padding:3px 10px">$10.27</td></tr>
+<tr style="background:#F5F5F0"><td colspan="3" style="background:#F0F2F5;padding:5px 10px;font-size:12px;font-weight:700;color:#333">🛒 Groceries &amp; Konbini</td></tr>
+<tr><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px"></td><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px">7-Eleven — 8:04 AM &nbsp;·&nbsp; ¥6,360 (breakfast bento, onigiri, drinks, snacks for group)</td><td style="text-align:right;font-weight:600;white-space:nowrap;padding:3px 10px">$42.97</td></tr>
+<tr><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px"></td><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px">阪急 Oasis — 8:54 PM &nbsp;·&nbsp; ¥1,426 (onigiri, kinpira gobo, goya chanpuru, snacks)</td><td style="text-align:right;font-weight:600;white-space:nowrap;padding:3px 10px">$9.64</td></tr>
+<tr><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px"></td><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px">Lawson — 5:51 PM &nbsp;·&nbsp; ¥400 (Japan NY cream bun)</td><td style="text-align:right;font-weight:600;white-space:nowrap;padding:3px 10px">$2.70</td></tr>
+<tr><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px"></td><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px">Seiyu — 6:59 PM &nbsp;·&nbsp; ¥226 (blueberry drink, green tea)</td><td style="text-align:right;font-weight:600;white-space:nowrap;padding:3px 10px">$1.53</td></tr>
+<tr style="background:#F5F5F0"><td colspan="3" style="background:#F0F2F5;padding:5px 10px;font-size:12px;font-weight:700;color:#333">🏛 Culture</td></tr>
+<tr><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px"></td><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px">Ginkaku-ji 銀閣寺 — Silver Pavilion ×6 &nbsp;·&nbsp; ¥5,200</td><td style="text-align:right;font-weight:600;white-space:nowrap;padding:3px 10px">$35.14</td></tr>
+<tr><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px"></td><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px">Kinkaku-ji 金閣寺 — Golden Pavilion ×6 &nbsp;·&nbsp; ¥3,200</td><td style="text-align:right;font-weight:600;white-space:nowrap;padding:3px 10px">$21.62</td></tr>
+<tr><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px"></td><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px">Ryōan-ji 龍安寺 — rock garden ×6 &nbsp;·&nbsp; ¥3,200</td><td style="text-align:right;font-weight:600;white-space:nowrap;padding:3px 10px">$21.62</td></tr>
+<tr style="background:#F5F5F0"><td colspan="3" style="background:#F0F2F5;padding:5px 10px;font-size:12px;font-weight:700;color:#333">🛍 Shopping</td></tr>
+<tr><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px"></td><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px">Sumikko Gurashi 堂 (Ginkaku-ji) — character goods ×5 &nbsp;·&nbsp; ¥3,377</td><td style="text-align:right;font-weight:600;white-space:nowrap;padding:3px 10px">$22.82</td></tr>
+<tr><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px"></td><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px">Daiso — 9:39 AM &nbsp;·&nbsp; ¥1,160 (keychains, ramune, rubber figure, petit blocks)</td><td style="text-align:right;font-weight:600;white-space:nowrap;padding:3px 10px">$7.84</td></tr>
+<tr><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px"></td><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px">Traveler's Factory Kyoto — Notebook refill (Kyoto Edition) &nbsp;·&nbsp; ¥462</td><td style="text-align:right;font-weight:600;white-space:nowrap;padding:3px 10px">$3.12</td></tr>
+<tr><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px"></td><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px">Daiso — 7:15 PM &nbsp;·&nbsp; ¥220 (chair leg socks ×2)</td><td style="text-align:right;font-weight:600;white-space:nowrap;padding:3px 10px">$1.49</td></tr>
+<tr style="background:#F5F5F0"><td colspan="3" style="background:#F0F2F5;padding:5px 10px;font-size:12px;font-weight:700;color:#333">💴 Misc</td></tr>
+<tr><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px"></td><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px">Bowl — tableware &nbsp;·&nbsp; ¥2,000</td><td style="text-align:right;font-weight:600;white-space:nowrap;padding:3px 10px">$13.51</td></tr>
+<tr><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px"></td><td style="font-size:13px;color:#555;padding:3px 10px 3px 22px">Water — throughout the day &nbsp;·&nbsp; ¥2,000</td><td style="text-align:right;font-weight:600;white-space:nowrap;padding:3px 10px">$13.51</td></tr>
+<tr class="total-row"><td colspan="2" style="font-size:13px">Day 4 Confirmed &nbsp;<small style="font-weight:400;color:#888">(lodging $174.75 + receipts $329.40)</small></td><td style="text-align:right;font-weight:700;font-size:13px;white-space:nowrap">$504.15</td></tr>
 
 <!-- ═══════════════ DAY 5 ═══════════════ -->
 <tr style="background:#1B3A6B"><td colspan="3" style="color:#fff;font-weight:700;font-family:'Space Mono',monospace;font-size:11px;padding:8px 14px;letter-spacing:0.05em">DAY 5 &nbsp;·&nbsp; JUL 13 &nbsp;·&nbsp; KYOTO &nbsp;·&nbsp; ✅ $340.97 confirmed</td></tr>
@@ -3836,11 +3914,11 @@ Day 5 Confirmed</td><td style="text-align:right;font-weight:700;font-size:13px;w
 
 <!-- ═══════════════ GRAND TOTAL ═══════════════ -->
 <tr style="background:#0A1929"><td colspan="3" style="color:#FFF9F0;font-weight:700;font-family:'Space Mono',monospace;font-size:13px;padding:12px 14px;letter-spacing:0.03em">
-  ✅ GRAND TOTAL — CONFIRMED PURCHASES (excl. ⏳ TBD) &nbsp;·&nbsp; $13,476.32 confirmed
+  ✅ GRAND TOTAL — CONFIRMED PURCHASES (excl. ⏳ TBD) &nbsp;·&nbsp; $13,805.72 confirmed
   <div style="font-size:11px;font-weight:400;margin-top:4px;color:#AAC4DD">
-    Flights $6,950.93 &nbsp;·&nbsp; Lodging $4,164.13 &nbsp;·&nbsp; Ground Transport $1,191.17 &nbsp;·&nbsp; Food &amp; Drink $505.43 &nbsp;·&nbsp; Culture $272.98 &nbsp;·&nbsp; Shopping $127.31 &nbsp;·&nbsp; Cash $153.97 &nbsp;·&nbsp; Pre-dep Transfer $82.00
+    Flights $6,950.93 &nbsp;·&nbsp; Lodging $4,164.13 &nbsp;·&nbsp; Ground Transport $1,191.17 &nbsp;·&nbsp; Food &amp; Drink $694.16 &nbsp;·&nbsp; Culture $351.36 &nbsp;·&nbsp; Shopping $162.57 &nbsp;·&nbsp; Cash / Misc $181.00 &nbsp;·&nbsp; Pre-dep Transfer $82.00
   </div>
-  <div style="font-size:11px;font-weight:400;margin-top:3px;color:#E8B87A">⏳ + Peach MM563 pending $751.79 → total up to $14,228.72 if confirmed</div>
+  <div style="font-size:11px;font-weight:400;margin-top:3px;color:#E8B87A">⏳ + Peach MM563 pending $751.79 → total up to $14,558.12 if confirmed</div>
   <div style="font-size:10px;font-weight:400;margin-top:3px;color:#7B9AB5">Still TBD: Tokyo Sumida lodging (Day 1) · Ise/Hiroshima/Tokyo final lodging (Days 17–21) · Julian's flights (CW18V6, separate booking)</div>
 </td></tr>
 
@@ -3885,27 +3963,27 @@ Day 5 Confirmed</td><td style="text-align:right;font-weight:700;font-size:13px;w
 </tr>
 <tr style="background:#F0FFF4">
   <td><strong>🍽 Food &amp; Drink</strong></td>
-  <td><small>Day 1: Maguro-bito dinner $77.54 · 7-Eleven konbini $4.81 · boba $4.62 · Day 2: 7-Eleven travel snacks $25.50 · Plusta $3.00 · Chapter Flowers Cafe $46.75 · Nishiki Gyōza ×2 $11.90 · Yubakichi $3.50 · Fumiya $28.60 · Nishiki tempura $8.10 · squid &amp; beer $4.40 · クスリのキリン堂 $0.57 · 阪急OASIS $1.74 · Shinrai Ramen $29.32 · 7-Eleven 西院 $7.55 · Day 3: 7-Eleven ×2 $29.87 · Coffee &amp; Boba $20.96 · Rabbit Bagel $26.36 · Gombei $57.46 · Daimaru pastries $12.41 · Goodman Roaster $12.84 · Izuu $107.07 · 7-Eleven 4:55pm $6.85 · Watts $2.20</small></td>
-  <td><small>1–3</small></td>
-  <td><strong>$533.93</strong> <small style="color:#888">(receipts)</small></td>
+  <td><small>Day 1: Maguro-bito dinner $77.54 · 7-Eleven konbini $4.81 · boba $4.62 · Day 2: 7-Eleven travel snacks $25.50 · Plusta $3.00 · Chapter Flowers Cafe $46.75 · Nishiki Gyōza ×2 $11.90 · Yubakichi $3.50 · Fumiya $28.60 · Nishiki tempura $8.10 · squid &amp; beer $4.40 · クスリのキリン堂 $0.57 · 阪急OASIS $1.74 · Shinrai Ramen $29.32 · 7-Eleven 西院 $7.55 · Day 3: 7-Eleven ×2 $29.87 · Coffee &amp; Boba $20.96 · Rabbit Bagel $26.36 · Gombei $57.46 · Daimaru pastries $12.41 · Goodman Roaster $12.84 · Izuu $107.07 · 7-Eleven 4:55pm $6.85 · Watts $2.20 · Day 4: 7-Eleven $42.97 · Tsuruyoshi lunch $83.24 · Yamazaki-Ann $12.16 · Kinkaku-ji Bamboo Café $12.16 · KFC $14.05 · Pizza Hut $10.27 · 阪急Oasis $9.64 · Lawson $2.70 · Seiyu $1.53</small></td>
+  <td><small>1–4</small></td>
+  <td><strong>$722.66</strong> <small style="color:#888">(receipts)</small></td>
 </tr>
 <tr style="background:#FFF0F0">
   <td><strong>🏛 Culture</strong></td>
-  <td><small>Day 2: Tō-ji 東寺 entrance ×6 $43.25 · Goshuin-chō &amp; stamp $20.25 · Day 3: Kiyomizudera 清水寺 ×6 $21.63 · Kodai-ji 高台寺 ×6 $21.63 · Day 5: Hozugawa River Boat ×6 $166.22</small></td>
-  <td><small>2–3, 5</small></td>
-  <td><strong>$272.98</strong> <small style="color:#888">(receipts)</small></td>
+  <td><small>Day 2: Tō-ji 東寺 entrance ×6 $43.25 · Goshuin-chō &amp; stamp $20.25 · Day 3: Kiyomizudera 清水寺 ×6 $21.63 · Kodai-ji 高台寺 ×6 $21.63 · Day 4: Ginkaku-ji 銀閣寺 ×6 $35.14 · Kinkaku-ji 金閣寺 ×6 $21.62 · Ryōan-ji 龍安寺 ×6 $21.62 · Day 5: Hozugawa River Boat ×6 $166.22</small></td>
+  <td><small>2–5</small></td>
+  <td><strong>$351.36</strong> <small style="color:#888">(receipts)</small></td>
 </tr>
 <tr style="background:#F0F8FF">
   <td><strong>🛍 Shopping</strong></td>
-  <td><small>Day 1: Tokyo Solamachi $4.63 · Day 2: 文具店tag stationery $34.80 · Day 3: Ogaki Bookstore sticker $4.46 · tote bag $11.90 · Lashinbang (MHA Bakugo) $18.86 · Suruga-ya (JJK figure) $32.45 · Camera Naniwa (lens filter) $20.21</small></td>
-  <td><small>1–3</small></td>
-  <td><strong>$127.31</strong> <small style="color:#888">(receipts)</small></td>
+  <td><small>Day 1: Tokyo Solamachi $4.63 · Day 2: 文具店tag stationery $34.80 · Day 3: Ogaki Bookstore sticker $4.46 · tote bag $11.90 · Lashinbang (MHA Bakugo) $18.86 · Suruga-ya (JJK figure) $32.45 · Camera Naniwa (lens filter) $20.21 · Day 4: Sumikko Gurashi ×5 $22.82 · Daiso $7.84 · Traveler's Factory refill $3.12 · Daiso socks $1.49</small></td>
+  <td><small>1–4</small></td>
+  <td><strong>$162.57</strong> <small style="color:#888">(receipts)</small></td>
 </tr>
 <tr style="background:#FFFFF0">
   <td><strong>💴 Cash / Misc</strong></td>
-  <td><small>¥25,000 group ATM draw · ¥162.37/$ · walking-around money</small></td>
-  <td><small>1</small></td>
-  <td><strong>$153.97</strong> <small style="color:#888">(receipts)</small></td>
+  <td><small>Day 1: ¥25,000 group ATM draw · ¥162.37/$ · walking-around money $153.97 · Day 4: bowl $13.51 · water $13.51</small></td>
+  <td><small>1, 4</small></td>
+  <td><strong>$181.00</strong> <small style="color:#888">(receipts)</small></td>
 </tr>
 <tr style="background:#F5F0FF">
   <td><strong>✈ Pre-dep Transfer</strong></td>
@@ -3919,8 +3997,8 @@ Day 5 Confirmed</td><td style="text-align:right;font-weight:700;font-size:13px;w
     <small>TBD: Tokyo Sumida lodging (Day 1) · Ise/Hiroshima/final Tokyo lodging (Days 17–21) · Julian's flights</small>
   </td>
   <td>
-    <strong>$13,437.14</strong><br>
-    <small style="color:#C04800">+ $751.79 Peach pending<br>→ up to $14,188.93</small>
+    <strong>$13,766.54</strong><br>
+    <small style="color:#C04800">+ $751.79 Peach pending<br>→ up to $14,518.33</small>
   </td>
 </tr>
 </tbody>
