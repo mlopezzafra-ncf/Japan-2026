@@ -427,6 +427,41 @@ tr:nth-child(even) td{background:var(--cream)}
 .blog-saved-msg.show{opacity:1}
 .blog-clear-btn{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1px;text-transform:uppercase;background:none;border:1px solid var(--border);color:var(--mist);padding:7px 14px;border-radius:3px;cursor:pointer;transition:all 0.15s}
 .blog-clear-btn:hover{border-color:#c0392b;color:#c0392b}
+
+/* ===== Hokkaido section add-on classes ===== */
+/* Teen-friendly "For the family" callout */
+.fam{background:#EAF5EC;border:1px solid #B5D6BE;border-left:3px solid var(--green);border-radius:3px;padding:16px 20px;margin-bottom:24px}
+.fam .fam-lbl{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.fam .fam-hook{font-family:'Playfair Display',serif;font-size:17px;line-height:1.3;color:#1f3d2a;margin-bottom:8px}
+.fam p{font-size:14.5px;line-height:1.75;color:#33413a;margin:0}
+/* Plan A / Plan B toggle */
+.plan-toggle{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 28px}
+.plan-btn{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:12px 20px;border:1.5px solid var(--border);background:white;color:var(--mist);cursor:pointer;border-radius:3px;transition:all .18s;flex:1;min-width:220px;text-align:left}
+.plan-btn .pb-tag{display:block;font-size:9px;color:var(--gold);margin-bottom:4px;letter-spacing:2px}
+.plan-btn.on{border-color:var(--green);background:#EAF5EC;color:var(--green)}
+.plan-btn.on .pb-tag{color:var(--green)}
+.plan-pane{display:none}
+.plan-pane.on{display:block}
+/* Booking cards (flight / car / stay) */
+.bkg-card{background:white;border:1px solid var(--border);border-radius:3px;padding:0;margin-bottom:18px;overflow:hidden}
+.book-hdr{background:var(--cream);padding:12px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.book-hdr .bh-name{font-family:'Playfair Display',serif;font-size:16px}
+.book-hdr .bh-status{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border-radius:2px}
+.st-ok{background:#EAF5EC;color:var(--green);border:1px solid #B5D6BE}
+.st-wait{background:#FFF8E7;color:#8E6B00;border:1px solid #E8D888}
+.book-body{padding:14px 18px;font-size:14px;line-height:1.7}
+.book-row{display:flex;flex-wrap:wrap;gap:6px 22px;margin-bottom:8px}
+.book-row span{font-size:13px}
+.book-row .bk{font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mist);display:block}
+.book-conf{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1px;color:var(--ink)}
+.book-warn{background:#FFF8E7;border-left:3px solid var(--gold);padding:11px 15px;margin:10px 0 0;font-size:13px;line-height:1.65;color:#5a4a20}
+.book-warn strong{color:#8E6B00}
+/* Food history grid */
+.food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;margin-top:24px}
+.food-card{background:white;border:1px solid var(--border);border-left:3px solid var(--green);border-radius:2px;padding:16px 20px}
+.food-card h4{font-family:'Playfair Display',serif;font-size:19px;font-weight:400;margin-bottom:4px}
+.food-card .fjp{font-family:'Noto Serif JP',serif;font-size:12px;color:var(--green);margin-bottom:10px}
+.food-card p{font-size:13.5px;line-height:1.7;color:#4A4040}
 </style>
 </head>
 <body>
@@ -2418,524 +2453,433 @@ Route: Kameoka dock (2 Shimo-Nakajima Hozu-cho) → Arashiyama (Togetsukyō) · 
 </div><!-- /kyoto-i pane -->
 
 <div id="hokkaido" class="pane">
+
   <div class="city-hdr">
     <div class="jp">北海道</div>
     <div class="dates">July 17–19 · Three Days</div>
     <h2>Hokkaido</h2>
-    <p>Japan's northern island — vast landscapes, extraordinary seafood, lavender fields, the most dramatic change of pace in the trip, and one night in a ryokan with private rotenburo.</p>
-  </div>
-  <div class="city-subtabs">
-    <div id="cst-hokkaido-days" class="cst cst-hokkaido active" onclick="showCityTab('hokkaido','days')">Day-by-Day</div>
-    <div id="cst-hokkaido-map" class="cst cst-hokkaido" onclick="showCityTab('hokkaido','map')">Map</div>
-    <div id="cst-hokkaido-restaurants" class="cst cst-hokkaido" onclick="showCityTab('hokkaido','restaurants')">Restaurants</div>
-  </div>
-  <div id="ctp-hokkaido-days" class="city-tab-pane ctp-hokkaido active">
-    <div class="sec">
-
-<!-- HOKKAIDO FLIGHT — BOOKED (PENDING CONFIRMATION) -->
-<div style="background:#FFFBEA;border:1.5px solid #D4B84A;border-left:4px solid #D4B84A;border-radius:0 3px 3px 0;padding:18px 22px;margin-bottom:20px">
-  <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#8B6B1A;margin-bottom:14px;display:flex;align-items:center;gap:8px">
-    ✈️ Tokyo → Sapporo · July 17
-    <span style="background:#F0C040;color:#5C4200;padding:2px 8px;border-radius:2px;font-size:8px;letter-spacing:1px">⏳ AWAITING AIRLINE CONFIRMATION</span>
+    <p>Japan's northern frontier — and it really is a frontier. Where Kyoto has 1,200 years of imperial history layered into every street, Hokkaido was largely outside the Japanese state until the 1860s. This is the leg where the story stops being about temples and palaces and starts being about volcanoes, rivers, wildlife, an Indigenous people called the Ainu, and one of the last big landscapes in Japan. Cooler, greener, wide open, and far less crowded than the cities.</p>
   </div>
 
-  <!-- Flight strip -->
-  <div style="background:white;border:1px solid #E0D8C0;border-radius:3px;padding:14px 18px;margin-bottom:14px">
-    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
-      <div>
-        <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8B8680;margin-bottom:4px">Peach Aviation · MM563</div>
-        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-          <div style="text-align:center">
-            <div style="font-size:22px;font-weight:700;color:var(--ink);letter-spacing:1px">8:45</div>
-            <div style="font-family:'Space Mono',monospace;font-size:10px;color:#8B8680">NRT · Narita</div>
+  <!-- ---------- GETTING THERE ---------- -->
+  <div class="sec">
+    <div class="kicker">Getting There</div>
+    <h2 class="sec-title">Flying North &amp; Wheels on the Ground</h2>
+    <p class="sec-sub">One short flight from Tokyo to New Chitose (CTS), then everything in Hokkaido is done by car. The whole itinerary is built around picking the cars up at the airport — you do not fly to Asahikawa.</p>
+
+    <!-- FLIGHT -->
+    <div class="bkg-card">
+      <div class="book-hdr">
+        <span class="bh-name">✈️ Tokyo (Narita) → Sapporo (New Chitose) · July 17</span>
+        <span class="bh-status st-wait">Awaiting Airline Confirmation</span>
+      </div>
+      <div class="book-body">
+        <div class="book-row">
+          <span><span class="bk">Airline / Flight</span>Peach Aviation · MM563</span>
+          <span><span class="bk">Depart</span>8:45 · NRT Narita</span>
+          <span><span class="bk">Arrive</span>10:35 · CTS New Chitose</span>
+          <span><span class="bk">Duration</span>1h 50m · Direct</span>
+        </div>
+        <div class="book-row">
+          <span><span class="bk">Travelers (6)</span>Pamela Novak, Manuel Lopez, Sophia Lopez, Julian Campopiano · Dylan Lopez, Isabel Lopez (children)</span>
+        </div>
+        <div class="book-row">
+          <span><span class="bk">Seats</span>Row 8 (full row) · 8A–8F</span>
+          <span><span class="bk">Fare</span>Standard Economy · $751.79 incl. taxes</span>
+          <span><span class="bk">Baggage / person</span>1 personal + 1 carry-on (11 lb) + 1 checked (44 lb)</span>
+        </div>
+        <div class="book-row">
+          <span><span class="bk">Gupta family — same flight</span>MM563 · Row 9 (right behind us) · 5 travelers · ✓ Confirmed · 1 checked bag each</span>
+        </div>
+        <div class="book-warn"><strong>⚠ Narita is the early start.</strong> NRT is ~80 min from Shinjuku on the N'EX — depart around 6:45 AM for the 8:45 flight, so set alarms for 5:30 AM on July 17. All 11 of us (rows 8 &amp; 9) meet at Narita Terminal 1, check-in by 7:45 AM. Airline confirmation lands at manu.asia@gmail.com. <em>Note: an earlier draft listed a Haneda/ANA flight — the confirmed booking is Peach MM563 out of Narita, so plan for Narita.</em></div>
+      </div>
+    </div>
+
+    <!-- CARS -->
+    <div class="bkg-card">
+      <div class="book-hdr">
+        <span class="bh-name">🚗 Rental Cars · Avis · New Chitose (CTS) · Jul 17–20</span>
+        <span class="bh-status st-ok">Both Confirmed</span>
+      </div>
+      <div class="book-body">
+        <div class="book-row">
+          <span><span class="bk">Our car (Lopez &amp; Novak)</span><span class="book-conf">Conf 12489170US1 · AWD #D203100</span> · Honda StepWagon or similar · Premium van · 7 seats · Automatic · Unlimited km · ¥63,030 (≈$420)</span>
+        </div>
+        <div class="book-row">
+          <span><span class="bk">Gupta car</span><span class="book-conf">Conf 12895386US0</span> · Automatic · Unlimited km · class TBD at pickup · ¥40,095 (≈$267)</span>
+        </div>
+        <div class="book-row">
+          <span><span class="bk">Pick-up</span>Jul 17 · 11:00 AM · CTS (lands 10:35 → collect car)</span>
+          <span><span class="bk">Location</span>758-206 Bibi, Chitose City · Hours 8 AM–8 PM</span>
+        </div>
+        <div class="book-warn"><strong>⚠ International Driving Permit required</strong> for both drivers — get it from AAA before departure (1–2 weeks processing). Return is on departure morning (Jul 20) at CTS before the ANA flight to Osaka — <strong>double-check the exact return time against the 8:35 AM flight</strong>, since the desk opens at 8 AM.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- HOKKAIDO IN CONTEXT (scholarly framing) ---------- -->
+  <div class="sec">
+    <div class="kicker">Read This First</div>
+    <h2 class="sec-title">Hokkaido in Context</h2>
+    <p class="sec-sub">Hokkaido becomes much richer once you know its history — because it is not simply "another part of Japan." It is Japan's frontier, closer in feel to the American West or Patagonia: vast, sparsely populated, and folded into the modern Japanese state only recently. Knowing that changes how you read the landscape.</p>
+
+    <p class="prose">Unlike Kyoto, whose history stretches back over 1,200 years as Japan's imperial capital, Hokkaido followed a completely different path. For thousands of years the island was home to the <strong>Ainu</strong>, an Indigenous people with their own language, religion, and culture. Rather than Buddhism or Shinto, the Ainu understood the world as filled with <em>kamuy</em> — powerful spiritual beings who take the form of bears, owls, salmon, mountains, rivers, fire, and even everyday household tools.</p>
+
+    <p class="prose">Around the 15th century, Japanese merchants from the <strong>Matsumae domain</strong> began trading with the Ainu in the far south of the island, but most of Hokkaido stayed outside Japanese political control. Everything changed after the <strong>Meiji Restoration of 1868</strong>. Worried about Russian expansion from the north, the new government rapidly colonized the island: roads, railways, farms, and towns were built; settlers arrived from all over Japan; and Shinto shrines were founded to plant imperial authority in the landscape. At the same time, Ainu communities were displaced and pressured to assimilate. As you drive through Hokkaido, you are looking at landscapes shaped by both ancient Indigenous traditions and very modern nation-building.</p>
+
+    <div class="hbox"><strong>For the whole family — the one big idea</strong>Almost everything you'll eat, see, and drive past this week is less than 150 years old as "Japan" — the farms, the dairy, the lamb barbecue, even the towns. But underneath is a much older Indigenous map of the island, where the mountains you're hiking were the home of gods. Hold both stories in your head at once. To go deeper, the <a href="https://ainu-upopoy.jp/en/" target="_blank" rel="noopener" class="sl">National Ainu Museum (Upopoy)</a> is the best English-language starting point on Ainu culture.</div>
+  </div>
+
+  <!-- ---------- THE TWO PLANS ---------- -->
+  <div class="sec">
+    <div class="kicker">Choose Your Route</div>
+    <h2 class="sec-title">Two Ways to Do Hokkaido</h2>
+    <p class="sec-sub">Same three days, same flights, same cars — two different characters. Plan A goes deep into the volcanic wilderness and a mountain onsen; Plan B stays lower, greener, and closer to the city. Plan A is our primary plan.</p>
+
+    <div class="plan-toggle">
+      <button class="plan-btn on" data-plan="a" onclick="showPlan('a')"><span class="pb-tag">Plan A · Primary</span>Daisetsuzan &amp; the Mountains</button>
+      <button class="plan-btn" data-plan="b" onclick="showPlan('b')"><span class="pb-tag">Plan B · Alternate</span>Sapporo &amp; Furano</button>
+    </div>
+
+    <!-- ============ PLAN A ============ -->
+    <div id="plan-a" class="plan-pane on">
+      <p class="prose"><strong>Plan A · Daisetsuzan &amp; Mountains.</strong> Fly to New Chitose, pick up the Avis StepWagon, drive north to Asahikawa. Day 10 goes into Daisetsuzan — Japan's largest national park and Hokkaido's volcanic heart: the Asahidake Ropeway to 1,600 m, alpine wildflowers, steaming fumaroles, and the family-friendly Sugatami Pond loop, then a night at a hot-spring lodge. Day 11 is Souunkyo Gorge and its twin waterfalls, then a drive south for one strong seafood night in Sapporo. More landscape, less city — the deeper Hokkaido.</p>
+
+      <!-- DAY 09 -->
+      <div class="day-card">
+        <div class="day-hdr"><h3>Friday, July 17 — Tokyo → Sapporo · Drive to Asahikawa · Biei</h3><span class="day-num">Day 09</span></div>
+        <div class="day-body">
+
+          <div class="fam">
+            <div class="fam-lbl">✦ For the family — today's plan</div>
+            <div class="fam-hook">Fly north to Hokkaido and the impossibly turquoise Blue Pond.</div>
+            <p>We fly up to Hokkaido, grab our seven-seater, and drive north toward Asahikawa. First stop is the Shirogane Blue Pond — a bright turquoise pool with bare, ghostly trees standing in it — and the patchwork farm hills of Biei. Hokkaido is Japan's wide-open north: cooler, greener, and way less crowded than Tokyo.</p>
           </div>
-          <div style="text-align:center">
-            <div style="font-family:'Space Mono',monospace;font-size:9px;color:#8B8680">──── 1h 50m ────</div>
-            <div style="font-family:'Space Mono',monospace;font-size:8px;color:#2D5A3D;letter-spacing:1px">DIRECT</div>
+
+          <div class="tblock"><div class="tlabel">Morning · Fly to New Chitose · Pick Up the Car · Drive to Biei</div>
+            <p>Land at New Chitose (CTS) at 10:35, collect the 7-seater from Avis at 11:00 (International Driving Permit required). Head north on the Doō Expressway toward Asahikawa — the whole region is why the cars are based here; driving from CTS is the correct logistics, not flying on to Asahikawa. Blue Pond and Biei are an easy detour on the way to tonight's house. Total driving today is roughly 2–2.5 hours, broken up by the afternoon stops.</p>
           </div>
-          <div style="text-align:center">
-            <div style="font-size:22px;font-weight:700;color:var(--ink);letter-spacing:1px">10:35</div>
-            <div style="font-family:'Space Mono',monospace;font-size:10px;color:#8B8680">CTS · New Chitose</div>
+
+          <div class="tblock"><div class="tlabel">Afternoon · Shirogane Blue Pond &amp; the Biei Hills</div>
+            <p><strong>Shirogane Blue Pond (Aoiike)</strong> — the vivid turquoise pond with dead trees rising out of it. Genuinely surreal, and a great first "wow" for the kids. About 1 hour from Asahikawa. <strong>Biei Patchwork Road</strong> — rolling farmland in blocks of different crop colors: golden wheat, green corn, purple lavender. Drive the loop from the Ken &amp; Mary's Tree viewpoint; late-afternoon light is ideal.</p>
+
+            <div class="hbox"><strong>Biei — Japan's "European" landscape</strong>Many visitors say Biei doesn't look like Japan, and they're right. These broad fields and gentle hills were created by modern agricultural settlement in the late 19th and early 20th centuries — Hokkaido's cooler climate made large-scale farming possible in ways the mountains of Honshu never allowed. Today Biei is famous for wheat, potatoes, corn, asparagus, lavender, and dairy. The "Patchwork Road" isn't a historical route at all; it's named for the quilt-like pattern of fields that shift color through the growing season.</div>
+
+            <div class="hbox"><strong>Ken &amp; Mary's Tree</strong>This lone poplar became famous after appearing in a Nissan Skyline advertisement in the 1970s. It's a nice reminder that modern Japanese pop culture has shaped how people picture Hokkaido almost as much as history has.</div>
+
+            <div class="hbox"><strong>Blue Pond — nature meets engineering</strong>Here's the twist: the famous Blue Pond isn't natural. After the 1988 eruption of Mount Tokachi, engineers built dams to protect the towns below from volcanic mudflows. Water rich in aluminum hydroxide collected behind one dam and scatters blue wavelengths of light, producing that vivid turquoise. The dead trees are the remains of the flooded forest — which is exactly why it looks so haunting. A beautiful accident of nature and engineering together.</div>
           </div>
-        </div>
-      </div>
-      <div style="text-align:right">
-        <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8B8680;margin-bottom:4px">Total · 6 Travelers</div>
-        <div style="font-size:22px;font-weight:700;color:#8B6B1A">$751.79</div>
-        <div style="font-size:11px;color:#8B8680">Standard Economy · Taxes included</div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Travelers + seats -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
-    <div>
-      <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8B8680;margin-bottom:8px">6 Travelers</div>
-      <div style="font-size:13px;line-height:1.8;color:var(--ink)">
-        Pamela Novak · Adult<br>
-        Manuel Lopez · Adult<br>
-        Sophia Lopez · Adult<br>
-        Julian Campopiano · Adult<br>
-        Dylan Lopez · Child<br>
-        Isabel Lopez · Child
-      </div>
-    </div>
-    <div>
-      <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8B8680;margin-bottom:8px">Seats · Row 8 (Full Row)</div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
-        <span style="background:#2E4D8E;color:white;padding:3px 8px;border-radius:2px;font-family:'Space Mono',monospace;font-size:10px">8A</span>
-        <span style="background:#2E4D8E;color:white;padding:3px 8px;border-radius:2px;font-family:'Space Mono',monospace;font-size:10px">8B</span>
-        <span style="background:#2E4D8E;color:white;padding:3px 8px;border-radius:2px;font-family:'Space Mono',monospace;font-size:10px">8C</span>
-        <span style="background:#2E4D8E;color:white;padding:3px 8px;border-radius:2px;font-family:'Space Mono',monospace;font-size:10px">8D</span>
-        <span style="background:#2E4D8E;color:white;padding:3px 8px;border-radius:2px;font-family:'Space Mono',monospace;font-size:10px">8E</span>
-        <span style="background:#2E4D8E;color:white;padding:3px 8px;border-radius:2px;font-family:'Space Mono',monospace;font-size:10px">8F</span>
-      </div>
-      <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8B8680;margin-bottom:6px">Baggage Included (per person)</div>
-      <div style="font-size:12px;color:var(--ink);line-height:1.7">
-        ✓ 1 personal item (under seat)<br>
-        ✓ 1 carry-on (11 lbs max)<br>
-        ✓ 1 checked bag (44 lbs max)
-      </div>
-    </div>
-  </div>
-
-  <!-- Price breakdown -->
-  <div style="background:white;border:1px solid #E0D8C0;border-radius:2px;padding:10px 14px;margin-bottom:12px;display:flex;gap:24px;flex-wrap:wrap;font-size:13px;color:var(--ink)">
-    <span>Adults (4) <strong>$501.20</strong></span>
-    <span style="color:#D4CCC0">|</span>
-    <span>Children (2) <strong>$250.59</strong></span>
-    <span style="color:#D4CCC0">|</span>
-    <span>Total incl. taxes &amp; fees <strong style="color:#8B6B1A">$751.79</strong></span>
-  </div>
-
-  <!-- Logistics note -->
-  <div style="background:#FFF3CD;border:1px solid #E0D8C0;border-radius:2px;padding:10px 14px;font-size:12px;color:#5C4200;line-height:1.7">
-    ⚠ <strong>Narita logistics:</strong> NRT is ~80 min from Shinjuku on the N'EX (depart ~6:45 AM for an 8:45 AM flight). Set alarms for 5:30 AM on July 17 — this is an early start. Confirmation email will arrive at manu.asia@gmail.com once the airline confirms.
-  </div>
-</div>
-
-<!-- GUPTA FAMILY — SAME FLIGHT MM563 -->
-<div class="gupta-box" style="margin-bottom:28px">
-  <div class="gupta-hdr">👨‍👩‍👧‍👦 Gupta Family — Same Flight · MM563 · Row 9 (Right Behind Us) · ✓ Confirmed</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px">
-    <div>
-      <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8B8680;margin-bottom:6px">5 Travelers</div>
-      <div style="font-size:13px;line-height:1.9;color:var(--ink)">
-        Uday Gupta · Adult<br>
-        Anita Gupta · Adult<br>
-        Asha Gupta · Adult<br>
-        Sahana Gupta · Adult<br>
-        Ayaan Gupta · Adult
-      </div>
-    </div>
-    <div>
-      <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8B8680;margin-bottom:6px">Seats · Row 9</div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
-        <span style="background:#085E6B;color:white;padding:3px 8px;border-radius:2px;font-family:'Space Mono',monospace;font-size:10px">9A</span>
-        <span style="background:#085E6B;color:white;padding:3px 8px;border-radius:2px;font-family:'Space Mono',monospace;font-size:10px">9B</span>
-        <span style="background:#085E6B;color:white;padding:3px 8px;border-radius:2px;font-family:'Space Mono',monospace;font-size:10px">9C</span>
-        <span style="background:#085E6B;color:white;padding:3px 8px;border-radius:2px;font-family:'Space Mono',monospace;font-size:10px">9D</span>
-        <span style="background:#085E6B;color:white;padding:3px 8px;border-radius:2px;font-family:'Space Mono',monospace;font-size:10px">9F</span>
-      </div>
-      <div style="font-size:12px;color:var(--ink);line-height:1.7">✓ 1 checked bag each · Standard (LSD) fare<br>Booked Apr 21, 2026 · Changes permitted up to 1hr before departure</div>
-    </div>
-  </div>
-  <div style="margin-top:10px;font-size:12px;color:#085E6B;font-style:italic">11 people total flying together — rows 8 & 9 are consecutive. Coordinate NRT meetup: Narita T1, check-in by 7:45 AM.</div>
-</div>
-
-<!-- RENTAL CARS — BOTH FAMILIES GROUPED -->
-<div style="border:1.5px solid #B0BCBA;border-radius:4px;overflow:hidden;margin-bottom:28px">
-
-  <!-- Section header -->
-  <div style="background:#f2f5f4;border-bottom:1.5px solid #B0BCBA;padding:11px 18px;display:flex;align-items:center;gap:10px">
-    <span style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#555">🚗 Rental Cars — Avis · New Chitose Airport (CTS) · Jul 17–20 · Both Families</span>
-    <span style="background:#555;color:white;padding:2px 8px;border-radius:2px;font-size:8px;font-family:'Space Mono',monospace;letter-spacing:1px">✓ BOTH CONFIRMED</span>
-  </div>
-
-  <!-- Two-column grid -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
-
-    <!-- ── OUR CAR (green) ── -->
-    <div style="background:#E8F3EC;border-right:1.5px solid #B0BCBA;padding:18px 20px">
-      <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#2D5A3D;margin-bottom:12px;display:flex;align-items:center;gap:6px">
-        🏠 Lopez &amp; Novak Family
-        <span style="background:#2D5A3D;color:white;padding:2px 7px;border-radius:2px;font-size:7px;letter-spacing:1px">OUR CAR</span>
-      </div>
-      <div style="margin-bottom:10px">
-        <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8B8680;margin-bottom:3px">Confirmation</div>
-        <div style="font-size:15px;font-weight:700;color:var(--ink)">12489170US1</div>
-        <div style="font-size:11px;color:#8B8680">AWD # D203100 · Name: Manuel Lopez</div>
-      </div>
-      <div style="margin-bottom:10px">
-        <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8B8680;margin-bottom:3px">Vehicle</div>
-        <div style="font-size:13px;color:var(--ink)"><strong>Honda StepWagon</strong> or Similar<br>Premium Van · 7 seats · Automatic · Unlimited km</div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
-        <div>
-          <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8B8680;margin-bottom:3px">Pick-Up</div>
-          <div style="font-size:12px;color:var(--ink)"><strong>Jul 17 · 11:00 AM</strong><br>CTS</div>
-        </div>
-        <div>
-          <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8B8680;margin-bottom:3px">Drop-Off</div>
-          <div style="font-size:12px;color:var(--ink)"><strong>Jul 20 · 11:00 AM</strong><br>CTS (same)</div>
-        </div>
-      </div>
-      <div style="background:white;border:1px solid #B5D6BE;border-radius:2px;padding:10px 12px">
-        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:6px">
-          <div>
-            <div style="font-family:'Space Mono',monospace;font-size:7px;letter-spacing:1px;text-transform:uppercase;color:#8B8680;margin-bottom:1px">Base</div>
-            <div style="font-size:13px;color:var(--ink)">¥57,300</div>
+          <div class="tblock"><div class="tlabel">Optional · Otokoyama Sake Museum</div>
+            <p>If timing works on the way back toward Asahikawa — free tasting of one of Hokkaido's most celebrated sakes. Small but excellent (and a quick stop while the kids wait in the car with a soft-serve).</p>
           </div>
-          <div>
-            <div style="font-family:'Space Mono',monospace;font-size:7px;letter-spacing:1px;text-transform:uppercase;color:#8B8680;margin-bottom:1px">Tax</div>
-            <div style="font-size:13px;color:var(--ink)">¥5,730</div>
-          </div>
-        </div>
-        <div style="display:flex;align-items:baseline;gap:8px">
-          <div style="font-size:20px;font-weight:700;color:#2D5A3D">¥63,030</div>
-          <div style="font-size:11px;color:#8B8680">≈ $420 USD</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- ── GUPTA CAR (teal) ── -->
-    <div style="background:#E0F0F3;padding:18px 20px">
-      <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#085E6B;margin-bottom:12px;display:flex;align-items:center;gap:6px">
-        👨‍👩‍👧‍👦 Gupta Family
-        <span style="background:#085E6B;color:white;padding:2px 7px;border-radius:2px;font-size:7px;letter-spacing:1px">THEIR CAR</span>
-      </div>
-      <div style="margin-bottom:10px">
-        <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8B8680;margin-bottom:3px">Confirmation</div>
-        <div style="font-size:15px;font-weight:700;color:var(--ink)">12895386US0</div>
-        <div style="font-size:11px;color:#8B8680">Avis · New Chitose Airport (CTS)</div>
-      </div>
-      <div style="margin-bottom:10px">
-        <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8B8680;margin-bottom:3px">Vehicle</div>
-        <div style="font-size:13px;color:var(--ink)">Automatic · Unlimited km<br><span style="font-size:11px;color:#8B8680">Vehicle class TBD at pick-up</span></div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
-        <div>
-          <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8B8680;margin-bottom:3px">Pick-Up</div>
-          <div style="font-size:12px;color:var(--ink)"><strong>Jul 17 · 11:00 AM</strong><br>CTS</div>
-        </div>
-        <div>
-          <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8B8680;margin-bottom:3px">Drop-Off</div>
-          <div style="font-size:12px;color:var(--ink)"><strong>Jul 20 · 11:00 AM</strong><br>CTS (same)</div>
-        </div>
-      </div>
-      <div style="background:white;border:1px solid #9ACDD4;border-radius:2px;padding:10px 12px">
-        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:6px">
-          <div>
-            <div style="font-family:'Space Mono',monospace;font-size:7px;letter-spacing:1px;text-transform:uppercase;color:#8B8680;margin-bottom:1px">Base</div>
-            <div style="font-size:13px;color:var(--ink)">¥36,450</div>
+          <div class="tblock"><div class="tlabel">Evening · Biei · Jingisukan</div>
+            <p>Settle into tonight's house near Blue Pond. Dinner is <strong>Jingisukan</strong> — Hokkaido's lamb-and-vegetable barbecue grilled at your table — a regional signature that doesn't need a reservation. (See the Food section for why lamb, of all things, is a Hokkaido specialty.)</p>
+
+            <div class="hbox"><strong>Still an active volcano — Tokachidake</strong>The Tokachidake volcanic group, looming behind Biei, is one of Japan's most active systems. Eruptions in 1926 and later produced deadly <em>lahars</em> (volcanic mudflows) — the same danger the Blue Pond dams were built to control. If you ever hike up from Bogakudai, you'll see forest give way shockingly fast to bare slopes of ash and rock: a visible line between life and the raw forces still shaping the island.</div>
           </div>
-          <div>
-            <div style="font-family:'Space Mono',monospace;font-size:7px;letter-spacing:1px;text-transform:uppercase;color:#8B8680;margin-bottom:1px">Tax</div>
-            <div style="font-size:13px;color:var(--ink)">¥3,645</div>
+
+          <!-- STAY -->
+          <div class="bkg-card">
+            <div class="book-hdr"><span class="bh-name">🏠 Grandeur 美瑛 — Biei · Entire Home</span><span class="bh-status st-ok">Confirmed</span></div>
+            <div class="book-body">
+              <div class="book-row">
+                <span><span class="bk">Confirmation</span><span class="book-conf">HMDY8P2PXF</span></span>
+                <span><span class="bk">Host</span>Masayoshi · keypad check-in</span>
+                <span><span class="bk">Check-in / out</span>Jul 17 · 3:00 PM → Jul 18 · 10:00 AM</span>
+              </div>
+              <div class="book-row">
+                <span><span class="bk">Address</span>2-chōme-5-15 Minamimachi, Biei</span>
+                <span><span class="bk">Guests</span>Up to 10 · $394.93</span>
+              </div>
+              <div class="book-warn"><strong>⚠ Non-refundable after July 16, 3:00 PM.</strong> Tomorrow: check out by 10 AM and drive to the Asahidake Ropeway.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DAY 10 -->
+      <div class="day-card">
+        <div class="day-hdr"><h3>Saturday, July 18 — Daisetsuzan &amp; Ryokan Night</h3><span class="day-num">Day 10</span></div>
+        <div class="day-body">
+
+          <div class="fam">
+            <div class="fam-lbl">✦ For the family — today's plan</div>
+            <div class="fam-hook">Ride a ropeway into the "playground of the gods," then soak in a hot spring.</div>
+            <p>Today we go into Daisetsuzan, Japan's largest national park. A ropeway lifts us to 1,600 m for alpine wildflowers, steaming vents, and a high mountain-pond loop that's easy enough for everyone. We end at a hot-spring lodge with tatami rooms and natural onsen baths — probably the most relaxing night of the whole trip.</p>
+          </div>
+
+          <div class="tblock"><div class="tlabel">Morning · Asahidake Ropeway &amp; Light Hiking</div>
+            <p>Drive up to Asahidake, Hokkaido's highest peak (2,291 m) and the core of Daisetsuzan. Take the <strong>Asahidake Ropeway</strong> to the 1,600 m station. In July: alpine wildflowers, volcanic fumaroles, and long ridge views. From the top, the family-friendly option is the <strong>Sugatami Pond Circuit</strong> (1.7 km, ~1 hour) past steaming vents, mirror-still ponds, and snow that lingers into July. For stronger hikers, the trail toward the summit is 3–4 hours round trip (intermediate). Keep it to the pond loop with the kids — it's plenty.</p>
+
+            <div class="hbox"><strong>Daisetsuzan — "the playground of the gods"</strong>The name means "Great Snowy Mountains." At over 2,200 km² it's Japan's largest national park — bigger than Tokyo, bigger than many European national parks — and it turns the earliest autumn colors in the country. The Ainu called these mountains <em>Kamuy Mintara</em>, "the playground of the gods," maybe the most beautiful name for any mountain range in Japan. When you walk around Sugatami Pond, you are literally walking through what the Ainu understood as the dwelling place of powerful spiritual beings.</div>
+
+            <div class="hbox"><strong>Why there's a ropeway</strong>Unlike ropeways built purely for tourism, the Asahidake Ropeway exists because this alpine environment is genuinely fragile. Lifting visitors above the forest reduces erosion while letting people who'd never attempt a full climb still stand in the high country.</div>
+
+            <div class="hbox"><strong>Those steam vents aren't hot springs</strong>The fumaroles you'll see are visible proof that magma still sits beneath the mountain. Japan holds roughly 10% of the world's active volcanoes despite covering less than 0.3% of Earth's land surface — and standing next to a hissing vent is the most direct way to feel that statistic.</div>
+          </div>
+
+          <div class="tblock"><div class="tlabel">Afternoon · Slow Down on Purpose</div>
+            <p>This is the day to decompress. After the hike, drive to tonight's lodge and get into the outdoor onsen before dinner. Mountain air, silence, hot mineral water — the sharpest contrast with the rest of the trip.</p>
+          </div>
+
+          <div class="tblock"><div class="tlabel">Evening · Asahidake Onsen · Hot-Spring Lodge</div>
+            <p>Settle in, soak, and cook simple — the baths are the whole point tonight.</p>
+
+            <div class="hbox"><strong>Ryokan &amp; onsen — a 1,000-year-old format</strong>The ryokan tradition dates to the 8th century, when imperial messengers needed lodging along official routes. The format — tatami rooms, futon, yukata robes, communal or private onsen baths — has stayed essentially unchanged for over a thousand years. Hot-spring culture is woven into both Shinto purification ritual and Buddhist ascetic practice; the mineral content of each spring is classified and named, and different springs are said to treat different ailments, a tradition recorded in texts from the Nara period. See the <a href="http://eos.kokugakuin.ac.jp/modules/xwords/entry.php?entryID=399" target="_blank" rel="noopener" class="sl">Encyclopedia of Shinto on misogi (purification)</a> for the ritual-bathing background.</div>
+          </div>
+
+          <!-- STAY -->
+          <div class="bkg-card">
+            <div class="book-hdr"><span class="bh-name">🏡 K's House Hokkaido — Asahidake Onsen</span><span class="bh-status st-ok">Confirmed</span></div>
+            <div class="book-body">
+              <div class="book-row">
+                <span><span class="bk">Confirmation</span><span class="book-conf">6122.091.892 · PIN 1368</span></span>
+                <span><span class="bk">Room</span>Family Room · Mountain View · 7 futons · tatami · full kitchen</span>
+              </div>
+              <div class="book-row">
+                <span><span class="bk">Check-in</span>Jul 18 · 3:00–7:30 PM (arrive before 7:30)</span>
+                <span><span class="bk">Check-out</span>Jul 19 · 8:00–11:00 AM</span>
+                <span><span class="bk">Total</span>~$535 / ¥84,444 · hot-spring tax incl.</span>
+              </div>
+              <div class="book-row"><span><span class="bk">Address</span>Yukomanbetsu, Asahidake Onsen, Higashikawa · free parking · photo ID + credit card at check-in</span></div>
+              <div class="book-warn"><strong>⚠ No meals — the room has a full kitchen.</strong> Pick up groceries or bento boxes in Asahikawa <em>before</em> driving up (there's little at the onsen), or eat at a nearby lodge restaurant. The hot-spring baths are the centerpiece; cook simple and soak. Cancellation: 50% fee from Jul 16.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DAY 11 -->
+      <div class="day-card">
+        <div class="day-hdr"><h3>Sunday, July 19 — Souunkyo Gorge → Sapporo</h3><span class="day-num">Day 11</span></div>
+        <div class="day-body">
+
+          <div class="fam">
+            <div class="fam-lbl">✦ For the family — today's plan</div>
+            <div class="fam-hook">Twin waterfalls in a canyon, then a giant seafood dinner in Sapporo.</div>
+            <p>A morning soak and breakfast, then Souunkyo Gorge with its Ryusei and Ginga waterfalls, before we drive south to Sapporo. Hokkaido is Japan's seafood capital — crab, sea urchin, salmon roe — so tonight is our big seafood feast. Early to bed: we fly to Osaka in the morning.</p>
+          </div>
+
+          <div class="tblock"><div class="tlabel">Morning · Onsen &amp; Breakfast</div>
+            <p>Wake around 5:30–6 AM for the outdoor bath before other guests are up. Simple breakfast from the kitchen, then check out (by 11 AM).</p>
+          </div>
+
+          <div class="tblock"><div class="tlabel">Late Morning · Souunkyo Gorge (層雲峡)</div>
+            <p>Drive northeast to <strong>Souunkyo Gorge</strong> (~1.5 hrs from Asahidake) — a dramatic 24 km canyon of columnar basalt cliffs. Short, easy walks reach <strong>Ryusei Falls (Meteor Falls)</strong> and <strong>Ginga Falls (Milky Way Falls)</strong>, a pair of waterfalls dropping from the cliff face. Optional: the Souunkyo Ropeway + chairlift up toward Kurodake's 7th station for more mountain views (~¥2,400 round trip, adds ~1.5 hrs).</p>
+
+            <div class="hbox"><strong>Cliffs of cooled lava</strong>The walls of Souunkyo were formed when ancient lava cooled into enormous columns of basalt. Over thousands of years rivers cut down through those volcanic formations, carving one of Japan's most dramatic canyons.</div>
+
+            <div class="hbox"><strong>Ryusei &amp; Ginga — a matched pair</strong>The two waterfalls are traditionally viewed as complementary. <em>Ryusei</em> ("Meteor Falls") plunges fast in a narrow stream; <em>Ginga</em> ("Milky Way Falls") spreads gently down a broad cliff. Together they express contrasting kinds of movement — a very Japanese aesthetic idea, and a nice thing to point out to the kids: two waterfalls deliberately "read" as a set.</div>
+
+            <div class="hbox"><strong>Kurodake, if you take the ropeway</strong>Kurodake is one of Hokkaido's classic peaks. Unlike Asahidake, whose summit is dominated by volcanic scree, Kurodake offers broad ridge walking and wide views over Daisetsuzan. On a clear day it's the best way to feel the sheer scale of the park.</div>
+          </div>
+
+          <div class="tblock"><div class="tlabel">Afternoon · Drive to Sapporo</div>
+            <p>Drive south to Sapporo (~2.5–3 hrs via expressway) — your urban reset after two days in the mountains. Park at the Airbnb (2 spaces).</p>
+          </div>
+
+          <div class="tblock"><div class="tlabel">Evening · Sapporo Seafood Reward Night</div>
+            <p>This is your one Sapporo night — make it count. <strong>Nijo Market</strong> for fresh uni and crab, then a proper seafood dinner: <strong>Kani Honke</strong> for crab kaiseki (reserve ahead), or the <strong>Susukino</strong> district for a spread of Hokkaido sashimi and Sapporo draft beer. See the Restaurants section below.</p>
+          </div>
+
+          <!-- STAY -->
+          <div class="bkg-card">
+            <div class="book-hdr"><span class="bh-name">🏠 Sapporo Home — 5LDK · 150㎡</span><span class="bh-status st-ok">Confirmed</span></div>
+            <div class="book-body">
+              <div class="book-row">
+                <span><span class="bk">Confirmation</span><span class="book-conf">HMB524YQDQ</span></span>
+                <span><span class="bk">Host</span>Cat · up to 10 guests</span>
+                <span><span class="bk">Check-in / out</span>Jul 19 · 4:00 PM → Jul 20 · 10:00 AM</span>
+              </div>
+              <div class="book-row">
+                <span><span class="bk">Address</span>13-chōme-2-3 Minami 7 Jōnishi</span>
+                <span><span class="bk">Details</span>2 baths · 2 parking · 20 min walk to Susukino · $444.77</span>
+              </div>
+              <div class="book-warn"><strong>⚠ Early alarm tomorrow.</strong> ANA NH772 CTS → Osaka (ITM) departs 8:35 AM; return the Avis car at CTS first, and coordinate check-in with the Guptas. Full flight details are in the Kyoto II section. <em>The 10 AM checkout and 8:35 AM flight don't line up — you'll be leaving the house well before checkout, so confirm nothing is owed for the early exit.</em></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- /plan-a -->
+
+    <!-- ============ PLAN B ============ -->
+    <div id="plan-b" class="plan-pane">
+      <p class="prose"><strong>Plan B · Sapporo &amp; Furano.</strong> The lower-key alternate: base around the city and the Furano/Biei farm belt instead of the high mountains. Less driving and altitude, more lavender, markets, and art. A good fallback if the weather turns on Asahidake or if the group wants a gentler three days.</p>
+
+      <!-- DAY 09 -->
+      <div class="day-card">
+        <div class="day-hdr"><h3>Friday, July 17 — Arrival in Sapporo</h3><span class="day-num">Day 09</span></div>
+        <div class="day-body">
+          <div class="fam">
+            <div class="fam-lbl">✦ For the family — today's plan</div>
+            <div class="fam-hook">Land in Sapporo, walk the big park, and eat your way through a seafood market.</div>
+            <p>We fly in, drop the bags, and spend the afternoon in the middle of Sapporo — a long green park, soft-serve made from Hokkaido milk, and a market where you point at crab and sea urchin and they hand it straight to you.</p>
+          </div>
+          <div class="tblock"><div class="tlabel">Afternoon · Central Sapporo</div>
+            <p><strong>Odori Park</strong> — a 1.5 km green axis through the city center; walk it end to end and grab Hokkaido sweet corn or the famous milk soft-serve. <strong>Hokkaido Jingu</strong> — the principal Shinto shrine of the island, in a forested park 15 min from center. <strong>Nijo Market</strong> — uni, crab, ikura, scallops, eaten right at the stalls; July is peak season.</p>
+            <div class="hbox"><strong>A shrine as a colonial marker</strong>Hokkaido Jingu is worth reading through the "in context" lens above: it was founded in 1869, right after the Meiji government began colonizing the island, and enshrines pioneer deities alongside the spirit of Emperor Meiji. It's beautiful — and it's also a physical statement of the new state's arrival in the north. For the theology of shrine worship, see the <a href="http://eos.kokugakuin.ac.jp/modules/xwords/" target="_blank" rel="noopener" class="sl">Encyclopedia of Shinto</a>.</div>
           </div>
         </div>
-        <div style="display:flex;align-items:baseline;gap:8px">
-          <div style="font-size:20px;font-weight:700;color:#085E6B">¥40,095</div>
-          <div style="font-size:11px;color:#8B8680">≈ $267 USD</div>
+      </div>
+
+      <!-- DAY 10 -->
+      <div class="day-card">
+        <div class="day-hdr"><h3>Saturday, July 18 — Furano, Biei &amp; Ryokan Night</h3><span class="day-num">Day 10</span></div>
+        <div class="day-body">
+          <div class="fam">
+            <div class="fam-lbl">✦ For the family — today's plan</div>
+            <div class="fam-hook">Purple lavender fields, a turquoise pond, then a hot-spring night.</div>
+            <p>A full day out in the farm country — Japan's most famous lavender farm in full July bloom, the surreal Blue Pond, and the patchwork hills — then we check into a ryokan for kaiseki dinner and onsen soaking.</p>
+          </div>
+          <div class="tblock"><div class="tlabel">Full Day · Furano &amp; Biei</div>
+            <p><strong>Farm Tomita</strong> — Japan's most famous lavender farm, the whole valley purple in July; lavender ice cream and oils. Arrive by 9 AM for light and thin crowds. <strong>Biei Blue Pond (Aoiike)</strong> — the vivid blue pond with dead trees, 30 min away. <strong>Patchwork Road</strong> — the crop-color hills from the Ken &amp; Mary's Tree viewpoint.</p>
+            <div class="hbox"><strong>Lavender is younger than it looks</strong>Farm Tomita feels timeless, but lavender only became Hokkaido's signature crop in the 20th century — grown first for perfume oil, nearly abandoned when synthetic scents took over, then saved when a 1976 national-railway calendar photo made these fields famous. Like Biei's whole landscape, it's modern agriculture that turned into an icon. (For Blue Pond's engineered origin and the Biei farm story, see the Plan A context boxes above — they apply here too.)</div>
+          </div>
+          <div class="tblock"><div class="tlabel">Evening · Ryokan Check-In</div>
+            <p>Transfer to a Hokkaido ryokan (e.g. Zaborin near Niseko, or Jozankei Tsuruga) in time for the evening kaiseki and first onsen soak. See the 1,000-year ryokan context box in Plan A.</p>
+          </div>
         </div>
       </div>
-    </div>
 
-  </div><!-- /grid -->
-
-  <!-- Shared footer -->
-  <div style="background:#f2f5f4;border-top:1.5px solid #B0BCBA;padding:10px 18px;font-size:12px;color:#555">
-    Both cars pick up CTS at 11:00 AM Jul 17 · Both return CTS 11:00 AM Jul 20 before ANA NH772 8:35 AM · International Driving Permit required for both drivers · 758-206 Bibi, Chitose City, Hokkaido · Hours: Sun–Sat 8 AM–8 PM
+      <!-- DAY 11 -->
+      <div class="day-card">
+        <div class="day-hdr"><h3>Sunday, July 19 — Ryokan Morning &amp; Sapporo Art</h3><span class="day-num">Day 11</span></div>
+        <div class="day-body">
+          <div class="fam">
+            <div class="fam-lbl">✦ For the family — today's plan</div>
+            <div class="fam-hook">An early hot-spring soak, then a park you can climb that's actually a giant sculpture.</div>
+            <p>Sunrise bath and a big Japanese breakfast, then back to Sapporo for Moerenuma Park — an entire park designed as one enormous artwork — before an easy last evening.</p>
+          </div>
+          <div class="tblock"><div class="tlabel">Morning · Rotenburo &amp; Breakfast</div>
+            <p>Wake at 5:30–6 AM for the outdoor bath before the crowds. Morning kaiseki breakfast: miso soup, grilled fish, rice, pickles, tamagoyaki, tofu. Allow 2+ hours before checkout.</p>
+          </div>
+          <div class="tblock"><div class="tlabel">Afternoon · Moerenuma Park &amp; Sapporo Beer</div>
+            <p><strong>Moerenuma Park</strong> — designed entirely by sculptor Isamu Noguchi (1904–1988): glass pyramid, conical hill, vast grass plain, water feature. The whole landscape is the artwork, and kids can climb most of it. Free; rent bikes. <strong>Sapporo Beer Museum</strong> — free entry; Sapporo is Japan's oldest beer brand (1876), and the red-brick complex is genuine industrial history, with a paid tasting room.</p>
+            <div class="hbox"><strong>Noguchi's last work</strong>Moerenuma was Isamu Noguchi's final master project, designed on the site of a former waste landfill and completed after his death — land art on a civic scale, and one of the most important works of its kind in Asia. See the <a href="https://www.worldhistory.org/Isamu_Noguchi/" target="_blank" rel="noopener" class="sl">World History Encyclopedia on Noguchi</a> for his biography.</div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /plan-b -->
   </div>
 
-</div><!-- /rental cars grouped -->
+  <!-- ---------- FOOD ---------- -->
+  <div class="sec">
+    <div class="kicker">Eat Like the North</div>
+    <h2 class="sec-title">Hokkaido on a Plate</h2>
+    <p class="sec-sub">Food tells Hokkaido's history as clearly as its landscapes do. Almost every "classic" Hokkaido dish is really a product of the last 150 years of frontier settlement — which is exactly what makes it interesting.</p>
 
-<!-- PLAN TOGGLE -->
-<div style="display:flex;gap:0;margin-bottom:28px;border-bottom:2px solid var(--border)">
-<div id="hk-plan-a-btn" class="cst active" onclick="switchHkPlan('a')" style="cursor:pointer;padding:12px 20px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--red);border-bottom:2px solid var(--red);margin-bottom:-2px">Plan A · Daisetsuzan & Mountains</div>
-<div id="hk-plan-b-btn" class="cst" onclick="switchHkPlan('b')" style="cursor:pointer;padding:12px 20px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mist);border-bottom:2px solid transparent;margin-bottom:-2px">Plan B · Sapporo & Furano</div>
-</div>
-
-<!-- PLAN A (Original — now Plan B: Sapporo & Furano) -->
-<div id="hk-plan-a" style="display:none">
-<div class="day-card"><div class="day-hdr"><h3>Friday, July 17 — Fly to Sapporo · Drive to Asahikawa</h3><span class="day-num">Day 09</span></div>
-<div class="day-body">
-<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">Fly north to Hokkaido, then drive into the lavender country.</div><p>We fly from Tokyo up to Hokkaido (New Chitose), pick up the rental vans, and drive north toward Asahikawa and Biei — Japan's far-north farm country. Dinner is Hokkaido lamb BBQ (jingisukan), and we sleep out near the lavender fields and the Blue Pond.</p></div>
-<div class="tblock"><div class="tlabel">Morning · Fly Tokyo → Sapporo (New Chitose)</div>
-<p>ANA or JAL, Haneda to <strong>New Chitose Airport (CTS)</strong> (~1h30m). <strong>Pick up rental car immediately at the airport</strong> — New Chitose has all major rental agencies (Toyota, Nippon, Orix) with 7-seater vans available. International Driving Permit required. Domestic flights are NOT covered by JR Pass — book independently.</p>
-</div>
-<div class="tblock"><div class="tlabel">Afternoon · Drive Sapporo → Asahikawa (~2 hours)</div>
-<p>Head north on the Hokkaido Expressway toward <strong>Asahikawa</strong>. Stop on the way for <strong>Nijo Market</strong> in Sapporo if time allows — fresh uni, crab, salmon roe at stalls, Hokkaido seafood at summer peak. Otherwise, drive straight and stop for lunch in Asahikawa. The expressway is fast and well-signed; Google Maps handles the route perfectly with Japan data.</p>
-<p>Arrive in Asahikawa by late afternoon. The city is the gateway for Daisetsuzan National Park and Biei — everything on Day 10 radiates from here. Quick walk around <strong>Heiwa Dori Shopping Street</strong> or along the Ishikari River if you arrive with energy to spare.</p>
-</div>
-<div class="tblock"><div class="tlabel">Evening · Asahikawa Dinner</div>
-<p><strong>Jingisukan</strong> (Hokkaido lamb BBQ) — Asahikawa's signature and a Hokkaido specialty unavailable in most of Japan. No reservation needed at most local spots; arrive at 6 PM. Alternatively: ramen at <strong>Asahikawa Ramen Mura</strong> (ramen village), a cluster of 8 shops serving the local soy-based style.</p>
-</div>
-<div class="tblock"><div class="tlabel">Accommodation · Tonight (July 17) · Biei Airbnb</div>
-<div style="background:#E8F3EC;border:1.5px solid #2D5A3D;border-left:4px solid #2D5A3D;border-radius:0 3px 3px 0;padding:12px 16px;margin-bottom:8px;font-size:13px;color:var(--ink)">
-  <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#2D5A3D;margin-bottom:8px;display:flex;align-items:center;gap:8px">🏠 Grandeur 美瑛 — Biei Entire Home <span style="background:#2D5A3D;color:white;padding:2px 8px;border-radius:2px;font-size:8px">✓ CONFIRMED</span></div>
-  Conf. <strong>HMDY8P2PXF</strong> · Check-in Jul 17 3:00 PM · Check-out Jul 18 10:00 AM · 2-chōme-5-15 Minamimachi, Biei · <strong style="color:#2D5A3D">$394.93</strong> · ⚠ Non-refundable after July 16, 3 PM
-</div>
-<p style="font-size:13px;color:#8B8680;margin:0">Tonight is Biei, not Asahikawa — entire home rental near Blue Pond and Furano. July 19: after ryokan checkout drive to Sapporo Airbnb (separate booking).</p>
-</div>
-</div></div>
-
-<div class="day-card"><div class="day-hdr"><h3>Saturday, July 18 — Furano, Biei & Ryokan Night</h3><span class="day-num">Day 10</span></div>
-<div class="day-body">
-<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">A full day in the lavender fields and at the Blue Pond.</div><p>The big Hokkaido scenery day — Farm Tomita's lavender in full July bloom, the improbably blue Aoiike pond, and the patchwork farmland hills of Biei. We end the day at a hot-spring ryokan for a kaiseki dinner and an onsen soak.</p></div>
-<div class="tblock"><div class="tlabel">Full Day · Furano & Biei</div>
-<p><strong>Farm Tomita</strong> — Japan's most famous lavender farm. July is peak season: the entire valley in full purple bloom. Lavender ice cream, essential oils, and photography conditions that explain why Hokkaido became Japan's aspirational landscape. Arrive at 9 AM for light and thin crowds.</p>
-<p><strong>Biei Blue Pond (Aoiike)</strong> — An intensely vivid natural blue pond created by aluminum hydroxide in the water, with dead trees rising from the surface. A genuinely improbable landscape. 30 min from Tomita. Late afternoon light is best.</p>
-<p><strong>Patchwork Road, Biei</strong> — Rolling farmland hills in different crop colors: yellow wheat, green corn, purple lavender, brown earth. The 10-minute circuit from Ken and Mary's Tree viewpoint is essential.</p>
-</div>
-<div class="tblock"><div class="tlabel">Evening · Ryokan Check-In</div>
-<p>Transfer to your Hokkaido ryokan. Arrive in time for the evening kaiseki dinner and first onsen soak.</p>
-<div class="tblock"><div class="tlabel">Accommodation · Tonight</div><p><strong>K's House Onsen</strong> — ryokan-style guesthouse with natural hot spring baths, tatami rooms, and a welcoming atmosphere that works well for families. Dinner and breakfast available on-site; onsen facilities open to guests throughout the evening. Good value for 6 people. Book direct at <a href="https://kshouse.jp/en/" target="_blank" rel="noopener" class="sl">kshouse.jp</a> — confirm 6-person room availability well in advance for July peak season.</p></div>
-<div class="hbox"><strong>Ryokan & Onsen — Historical Context</strong>The ryokan tradition dates to the 8th century when imperial messengers required lodging along official routes. The format — tatami rooms, futon, yukata robes, kaiseki dinner, communal or private onsen baths — has remained essentially unchanged for over 1,000 years. Hot spring (<em>onsen</em>) culture is intertwined with both Shinto purification ritual and Buddhist ascetic practice. The mineral content of each spring is classified and named; different springs are said to treat different ailments — a tradition documented in texts from the Nara period (8th century). See <a href="http://eos.kokugakuin.ac.jp/modules/xwords/entry.php?entryID=399" target="_blank" rel="noopener" class="sl">Encyclopedia of Shinto on misogi (purification)</a> for the ritual bathing tradition.</div>
-</div>
-</div></div>
-
-<div class="day-card"><div class="day-hdr"><h3>Sunday, July 19 — Ryokan Morning & Sapporo Art</h3><span class="day-num">Day 11</span></div>
-<div class="day-body">
-<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">A hot-spring morning, then Sapporo's art and beer.</div><p>An early outdoor onsen bath and a ryokan breakfast, then we drive to Sapporo for Moerenuma Park's sculptures and — for anyone who wants it — the Sapporo Beer museum. A relaxed transition day before the next leg.</p></div>
-<div class="tblock"><div class="tlabel">Morning · Rotenburo & Ryokan Breakfast</div>
-<p>Wake at 5:30–6 AM for the outdoor rotenburo (hot spring bath) before other guests are up. The morning kaiseki breakfast: miso soup, grilled fish, rice, pickles, tamagoyaki, tofu. Allow 2+ hours before checkout.</p>
-</div>
-<div class="tblock"><div class="tlabel">Afternoon · Moerenuma Park & Sapporo Beer</div>
-<p><strong>Moerenuma Park</strong> was designed entirely by sculptor Isamu Noguchi (1904–1988) — the entire landscape is the artwork: glass pyramid, conical hill, vast grass plain, water feature. One of the most important works of land art in Asia. Free entry; rent bikes. See <a href="https://www.worldhistory.org/Isamu_Noguchi/" target="_blank" rel="noopener" class="sl">World History Encyclopedia on Noguchi</a> for his biography and artistic context.</p>
-<p><strong>Sapporo Beer Museum</strong> — Free entry. Sapporo is Japan's oldest beer brand (1876). The exhibition in the red-brick complex is a genuine industrial history. Paid tasting room for Kaitakushi lager and Black Label.</p>
-</div>
-<div class="tblock"><div class="tlabel">Evening · Last Night in Sapporo</div>
-<p>Dinner in the Susukino area — <strong>Kani Honke</strong> for crab kaiseki (¥8,000–20,000/person, reserve ahead) or Nijo Market stalls for fresh uni and ikura. Early night: ANA NH772 CTS→ITM departs 8:35 AM tomorrow — return Avis at CTS by 7:30 AM. You land in Osaka by 10:25 AM, then Nara and finally Kyoto. Fushimi Inari is the morning after (July 21 at dawn).</p>
-</div>
-<div class="tblock"><div class="tlabel">Accommodation · Tonight · Sapporo Airbnb</div>
-<div style="background:#E8F3EC;border:1.5px solid #2D5A3D;border-left:4px solid #2D5A3D;border-radius:0 3px 3px 0;padding:12px 16px;margin-bottom:8px;font-size:13px;color:var(--ink)">
-  <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#2D5A3D;margin-bottom:8px;display:flex;align-items:center;gap:8px">🏠 Sapporo Home — 5LLDK · 150㎡ <span style="background:#2D5A3D;color:white;padding:2px 8px;border-radius:2px;font-size:8px">✓ CONFIRMED</span></div>
-  Conf. <strong>HMB524YQDQ</strong> · Check-in Jul 19 4:00 PM · Check-out Jul 20 10:00 AM · 13-chōme-2-3 Minami 7 Jōnishi, Sapporo · ⚠ Free cancel until Jun 19 · Partial until Jul 12
-</div>
-<p style="font-size:13px;color:#8B8680;margin:0">Set early alarm — <strong>ANA NH772 CTS→ITM departs 8:35 AM</strong> tomorrow · Return Avis rental at CTS by 7:30 AM · Guptas also on NH772 · Nishi-11-chome Station (Tozai Line) 11 min walk. From Sapporo to CTS: ~1 hr via JR + Tozai Line to Shin-Sapporo, then JR to CTS.</p>
-</div>
-</div></div>
-</div><!-- /hk-plan-a -->
-
-<!-- PLAN B (Now Plan A — Primary: Daisetsuzan & Mountains) -->
-<div id="hk-plan-b">
-
-<div style="margin-bottom:24px;padding:16px 20px;background:#E8F3EC;border:1.5px solid #2D5A3D;border-radius:3px">
-<div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#2D5A3D;margin-bottom:8px">✓ Primary Plan · Daisetsuzan & Mountains</div>
-<div style="font-family:'EB Garamond',serif;font-size:14px;color:var(--ink);line-height:1.7">Fly to <strong>New Chitose (CTS)</strong>, pick up the Avis Honda StepWagon, drive north to <strong>Asahikawa</strong>. Day 10: into <strong>Daisetsuzan National Park</strong> — Japan's largest, Hokkaido's volcanic wilderness. Asahidake Ropeway to 1,600m, alpine wildflowers, steaming fumaroles, the Sugatami Pond Circuit. Ryokan night at Asahidake Onsen. Day 11: <strong>Souunkyo Gorge</strong>, Ryusei + Ginga Falls, then drive south for one strong seafood night in Sapporo before the morning flight to Kyoto. More landscape, less city — the deeper Hokkaido.</div>
-</div>
-
-<div class="day-card"><div class="day-hdr"><h3>Friday, July 17 — Tokyo → Sapporo · Drive to Asahikawa · Biei</h3><span class="day-num">Day 09</span></div>
-<div class="day-body">
-<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">Fly north to Hokkaido and the surreal Blue Pond.</div><p>We fly up to Hokkaido, pick up our seven-seater, and drive north toward Asahikawa. First stop is the Shirogane Blue Pond — an impossibly turquoise pool with bare trees rising from it — and the patchwork farm hills of Biei. Hokkaido is Japan's wide-open north: cooler, greener, and far less crowded than the cities.</p></div>
-<div class="tblock"><div class="tlabel">Morning · Fly Tokyo → Sapporo (New Chitose) · Pick Up Rental Car</div>
-<p>Fly from Haneda to <strong>New Chitose Airport (CTS)</strong> (ANA/JAL, ~1h30m). <strong>Pick up the 7-seater rental car at New Chitose</strong> — all major agencies (Toyota, Nippon, Orix) are at the airport. International Driving Permit required. Drive north on the Hokkaido Expressway to <strong>Asahikawa (~2 hours)</strong>. This is where all car rentals are centered — driving from CTS is the correct logistics, not flying direct to Asahikawa.</p>
-</div>
-<div class="tblock"><div class="tlabel">Afternoon · Shirogane Blue Pond & Biei Hills</div>
-<p><strong>Shirogane Blue Pond (Aoiike)</strong> — The vivid turquoise pond with ghostly dead trees rising from the surface. Created by aluminum hydroxide particles in the water — genuinely surreal. 1 hour from Asahikawa Airport.</p>
-<p><strong>Biei Patchwork Road</strong> — Rolling farmland in different crop colors: golden wheat, green corn, purple lavender. Drive the circuit from Ken and Mary's Tree viewpoint. Late afternoon light is ideal.</p>
-</div>
-<div class="tblock"><div class="tlabel">Optional · Otokoyama Sake Museum</div>
-<p>If timing allows on the way back to Asahikawa. Free tasting of Hokkaido's most celebrated sake. Small but excellent.</p>
-</div>
-<div class="tblock"><div class="tlabel">Evening · Stay in Asahikawa</div>
-<p>Practical base for tonight — nothing fancy needed. Asahikawa is a logistics stop. <strong>Jingisukan</strong> (Hokkaido lamb BBQ) for dinner at a local spot — a Hokkaido signature that doesn't require a reservation.</p>
-</div>
-<div class="tblock"><div class="tlabel">Accommodation · Tonight · Biei Airbnb</div>
-<div style="background:#E8F3EC;border:1.5px solid #2D5A3D;border-left:4px solid #2D5A3D;border-radius:0 3px 3px 0;padding:14px 18px;margin-bottom:8px">
-  <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#2D5A3D;margin-bottom:10px;display:flex;align-items:center;gap:8px">🏠 Grandeur 美瑛 — Biei Entire Home <span style="background:#2D5A3D;color:white;padding:2px 8px;border-radius:2px;font-size:8px">✓ CONFIRMED</span></div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;font-size:13px;color:var(--ink)">
-    <div><div style="font-family:'Space Mono',monospace;font-size:8px;color:#8B8680;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px">Confirmation</div><strong>HMDY8P2PXF</strong></div>
-    <div><div style="font-family:'Space Mono',monospace;font-size:8px;color:#8B8680;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px">Host</div>Masayoshi · Keypad check-in</div>
-    <div><div style="font-family:'Space Mono',monospace;font-size:8px;color:#8B8680;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px">Check-In</div><strong>Jul 17 · 3:00 PM</strong></div>
-    <div><div style="font-family:'Space Mono',monospace;font-size:8px;color:#8B8680;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px">Check-Out</div><strong>Jul 18 · 10:00 AM</strong></div>
-    <div><div style="font-family:'Space Mono',monospace;font-size:8px;color:#8B8680;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px">Address</div>2-chōme-5-15 Minamimachi, Biei</div>
-    <div><div style="font-family:'Space Mono',monospace;font-size:8px;color:#8B8680;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px">Total · 10 guests</div><strong style="color:#2D5A3D">$394.93</strong></div>
-  </div>
-  <div style="background:#FFF3CD;border:1px solid #F0C040;border-radius:2px;padding:8px 12px;font-size:12px;color:#5C4200">
-    ⚠ <strong>Non-refundable after July 16, 3:00 PM.</strong> No partial refund after that — cancel at airbnb.com before July 16 if plans change.
-  </div>
-</div>
-<p style="font-size:13px;color:#8B8680;margin:6px 0 0">Near Blue Pond · Asahikawa · Furano — entire home, max 10 guests. Flight lands CTS 10:35 AM → pick up car → Blue Pond en route → check in Biei by 3 PM. Tomorrow morning: check out by 10 AM, drive to Asahidake Ropeway.</p>
-</div>
-</div></div>
-
-<div class="day-card"><div class="day-hdr"><h3>Saturday, July 18 — Daisetsuzan & Ryokan Night</h3><span class="day-num">Day 10</span></div>
-<div class="day-body">
-<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">Into Daisetsuzan's mountains, then a ryokan and onsen night.</div><p>Today we go into Daisetsuzan, Japan's largest national park — a ropeway lifts us to 1,600m for alpine wildflowers, steaming vents, and a high mountain-pond loop. We end at a traditional ryokan: tatami rooms, a multi-course kaiseki dinner, and long soaks in the natural hot-spring baths. Probably the most relaxing night of the trip.</p></div>
-<div class="tblock"><div class="tlabel">Morning · Asahidake Ropeway & Hiking</div>
-<p><strong>Asahidake</strong> is Hokkaido's highest peak (2,291m) and the core of <strong>Daisetsuzan National Park</strong> — Japan's largest national park. Take the <strong>Asahidake Ropeway</strong> to the 1,600m station. In July: alpine wildflowers, volcanic fumaroles, and panoramic ridge views. This is your core nature day.</p>
-<p>Light hiking options from the ropeway top station: the <strong>Sugatami Pond Circuit</strong> (1.7km, ~1 hour, family-friendly) winds past steaming vents, mirror-still ponds, and snowfields that persist into July. For more challenge: the trail toward the summit (3-4 hrs round trip, intermediate).</p>
-</div>
-<div class="tblock"><div class="tlabel">Afternoon · Slow Down Intentionally</div>
-<p>This is the day to decompress. After the hike, return to the ropeway base and drive to your ryokan. Arrive in time for the outdoor onsen before dinner. The mountain air, the silence, the hot mineral water — this is the deepest contrast with the rest of your trip.</p>
-</div>
-<div class="tblock"><div class="tlabel">Evening · Check-In · K's House Hokkaido — Asahidake Onsen</div>
-
-<!-- CONFIRMED BOOKING -->
-<div style="background:#E8F3EC;border:1.5px solid #2D5A3D;border-left:4px solid #2D5A3D;border-radius:0 3px 3px 0;padding:16px 20px;margin-bottom:14px">
-  <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#2D5A3D;margin-bottom:12px;display:flex;align-items:center;gap:8px">
-    🏡 K's House Hokkaido — Asahidake Onsen
-    <span style="background:#2D5A3D;color:white;padding:2px 8px;border-radius:2px;font-size:8px;letter-spacing:1px">✓ CONFIRMED</span>
-  </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
-    <div>
-      <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8B8680;margin-bottom:3px">Confirmation</div>
-      <div style="font-size:15px;font-weight:700;color:var(--ink)">6122.091.892</div>
-      <div style="font-size:12px;color:#8B8680;margin-top:2px">PIN: 1368</div>
-    </div>
-    <div>
-      <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8B8680;margin-bottom:3px">Room</div>
-      <div style="font-size:14px;color:var(--ink)"><strong>Family Room · Mountain View</strong><br>7 futon beds · Tatami · Full kitchen</div>
-    </div>
-    <div>
-      <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8B8680;margin-bottom:3px">Check-In</div>
-      <div style="font-size:14px;color:var(--ink)"><strong>July 18 · 3:00–7:30 PM</strong></div>
-      <div style="font-size:11px;color:#C0392B;margin-top:2px">Must arrive before 7:30 PM</div>
-    </div>
-    <div>
-      <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8B8680;margin-bottom:3px">Check-Out</div>
-      <div style="font-size:14px;color:var(--ink)"><strong>July 19 · 8:00–11:00 AM</strong></div>
+    <div class="food-grid">
+      <div class="food-card">
+        <h4>Jingisukan</h4>
+        <div class="fjp">ジンギスカン · grilled lamb</div>
+        <p>Lamb wasn't traditionally eaten in Japan. In the early 20th century the government pushed sheep farming in Hokkaido to supply wool for military uniforms — and this dome-grilled lamb-and-vegetable dish emerged from that era. The name ("Genghis Khan") and the helmet-shaped grill are more romantic legend than real history, but the dish is the taste of frontier Hokkaido.</p>
+      </div>
+      <div class="food-card">
+        <h4>Soup Curry</h4>
+        <div class="fjp">スープカレー</div>
+        <p>Invented in Sapporo in the 1970s. Instead of a thick roux, it's a fragrant, spiced broth full of whole vegetables — a showcase for the region's produce. A great, kid-friendly dinner and a genuinely local specialty you won't find done this way elsewhere.</p>
+      </div>
+      <div class="food-card">
+        <h4>Dairy</h4>
+        <div class="fjp">乳製品 · milk, cheese, butter, soft-serve</div>
+        <p>Hokkaido's cool, northern-European-like climate made it Japan's dairy center during the Meiji era, when the government invited foreign advisers to introduce Western cattle breeding and cheese- and butter-making. Today nearly half of all of Japan's milk comes from Hokkaido — which is why the soft-serve everywhere is so good.</p>
+      </div>
+      <div class="food-card">
+        <h4>Seafood</h4>
+        <div class="fjp">海鮮 · uni, scallops, ikura, kegani, hokke</div>
+        <p>Cold currents from the Sea of Okhotsk and the Pacific bring nutrient-rich water and some of Japan's finest seafood. Look for uni (sea urchin), scallops, ikura (salmon roe), hairy crab (kegani), and Atka mackerel (hokke). Unlike Tokyo, where seafood is trucked in from all over Japan, much of what you eat here was landed locally.</p>
+      </div>
+      <div class="food-card">
+        <h4>Corn</h4>
+        <div class="fjp">とうもろこし · grilled with butter &amp; soy</div>
+        <p>If someone hands you grilled sweet corn with butter and soy sauce, don't think of it as a snack — it's one of Hokkaido's signature crops. Long summer days and fertile volcanic soil give it a remarkable sweetness. A perfect walking-around-Odori-Park treat.</p>
+      </div>
+      <div class="food-card">
+        <h4>Ramen — a north-Japan map</h4>
+        <div class="fjp">ラーメン · miso vs shōyu</div>
+        <p>Sapporo is the home of rich <strong>miso ramen</strong> (often topped with butter and corn — pure Hokkaido). If you overnight in Asahikawa on Plan A, its own style is a lighter <strong>shōyu (soy) ramen</strong> in a seafood-and-pork broth. Trying both is a tidy little lesson in regional food geography.</p>
+      </div>
     </div>
   </div>
-  <div style="background:white;border:1px solid #B5D6BE;border-radius:2px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:10px">
-    <div style="display:flex;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--ink)">
-      <span>1 unit · 1 night · 6 guests</span>
-      <span style="color:#D4CCC0">|</span>
-      <span>Hot spring tax incl.</span>
+
+  <!-- ---------- RESTAURANTS ---------- -->
+  <div class="sec">
+    <div class="kicker">Where to Eat</div>
+    <h2 class="sec-title">Hokkaido — Restaurants</h2>
+    <p class="sec-sub">Hokkaido's cuisine is distinct from the rest of Japan — richer and more robust, built on crab, fresh seafood, lamb, and exceptional dairy. Your one big city dinner is the Sapporo seafood night on Day 11.</p>
+    <div class="rest-grid">
+
+      <div class="rest-card">
+        <div class="rest-tier rt-high">High End</div>
+        <div class="rest-body">
+          <div class="rest-name">Kani Honke</div>
+          <div class="rest-meta">Sapporo Center · Crab Kaiseki · ¥8,000–20,000</div>
+          <p>The definitive Hokkaido crab restaurant — hairy crab, king crab, snow crab, prepared every possible way across a multi-course meal. July crab is at its peak. Reserve ahead; this is your once-in-a-trip dinner.</p>
+        </div>
+      </div>
+
+      <div class="rest-card">
+        <div class="rest-tier rt-mid">Classic</div>
+        <div class="rest-body">
+          <div class="rest-name">Daruma Jingisukan</div>
+          <div class="rest-meta">Susukino · Grilled Lamb · ¥2,000–3,500</div>
+          <p>Jingisukan at the historic Susukino original — lamb and vegetables on a dome grill at your table. Loud, smoky, and essential. Great for the family and no reservation drama.</p>
+        </div>
+      </div>
+
+      <div class="rest-card">
+        <div class="rest-tier rt-mid">Sapporo Original</div>
+        <div class="rest-body">
+          <div class="rest-name">Suage+</div>
+          <div class="rest-meta">Susukino · Soup Curry · ¥1,200–1,800</div>
+          <p>Sapporo's signature soup curry done well — spiced broth loaded with local vegetables and a choice of chicken or knee-soft pork. Customizable heat makes it easy with kids. A true local invention.</p>
+        </div>
+      </div>
+
+      <div class="rest-card">
+        <div class="rest-tier rt-local">Miso Ramen</div>
+        <div class="rest-body">
+          <div class="rest-name">Ramen Republic (Esta)</div>
+          <div class="rest-meta">Sapporo Station · Miso Ramen · ¥1,000–1,500</div>
+          <p>Eight of Sapporo's best ramen shops under one roof on the top floor of the Esta building. Thick, savory miso broth with butter and corn — the definitive Hokkaido bowl. Fast, cheap, crowd-pleasing.</p>
+        </div>
+      </div>
+
+      <div class="rest-card">
+        <div class="rest-tier rt-local">Asahikawa (Plan A)</div>
+        <div class="rest-body">
+          <div class="rest-name">Asahikawa Shōyu Ramen</div>
+          <div class="rest-meta">Asahikawa · Soy Ramen · ¥900–1,300</div>
+          <p>If you stop in Asahikawa on the way to the mountains, try its local style: a lighter soy-based ramen in a seafood-and-pork broth with a thin layer of lard to hold the heat in the cold. A nice contrast to Sapporo's miso.</p>
+        </div>
+      </div>
+
+      <div class="rest-card">
+        <div class="rest-tier rt-local">Coffee</div>
+        <div class="rest-body">
+          <div class="rest-name">Morihiko Coffee</div>
+          <div class="rest-meta">Multiple Sapporo locations · Specialty Coffee</div>
+          <p>Sapporo's most celebrated coffee culture — refined café spaces, excellent pour-overs, beautiful interiors. A good calm stop before the early flight out.</p>
+        </div>
+      </div>
+
     </div>
-    <div style="text-align:right">
-      <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1px;text-transform:uppercase;color:#2D5A3D;margin-bottom:2px">Total</div>
-      <div style="font-size:18px;font-weight:700;color:#2D5A3D">~$535 <span style="font-size:12px;font-weight:400;color:#8B8680">/ ¥84,444</span></div>
-    </div>
+    <div class="hbox" style="margin-top:24px"><strong>Plan A note — dinner in the mountains</strong>K's House at Asahidake Onsen has <em>no meals</em> but a full kitchen, and there's almost nothing to buy up there. Stock up on groceries or bento boxes in Asahikawa before you drive up. Save the big restaurant night for Sapporo on Day 11.</div>
   </div>
-  <!-- Cancellation warning -->
-  <div style="background:#FFF3CD;border:1px solid #F0C040;border-radius:2px;padding:10px 14px;font-size:12px;color:#5C4200;line-height:1.7">
-    ⚠ <strong>Free cancellation until July 15, 11:59 PM.</strong> From July 16: 50% fee (~$262 lost). No-show: full charge. Cancel at your.booking.com if plans change.
-  </div>
-</div>
 
-<!-- Meal plan alert -->
-<div style="background:#F3EDE2;border:1px solid #D4CCC0;border-left:3px solid #B8963A;border-radius:0 3px 3px 0;padding:10px 14px;margin-bottom:12px;font-size:13px;color:var(--ink)">
-  <strong>⚠ No meals included</strong> — the room has a full kitchen (stovetop, microwave, coffee machine, toaster, refrigerator, kitchenware). Pick up groceries or bento boxes in Asahikawa before driving up, or plan dinner at a nearby lodge restaurant. The hot spring baths are the centrepiece — settle in, soak, and cook simple.
-</div>
+  <!-- ---------- CLOSING THEME ---------- -->
+  <div class="sec">
+    <div class="kicker">One Thing to Carry With You</div>
+    <h2 class="sec-title">Why Hokkaido Ends the Trip Well</h2>
+    <p class="prose">As you travel through Hokkaido, you'll notice something very different from Kyoto. Kyoto's landmarks are overwhelmingly the work of people — temples, shrines, palaces, gardens, centuries of careful design. Hokkaido, by contrast, asks you to look at the landscape itself: volcanoes, rivers, forests, and wildlife take center stage, and human history here is relatively recent.</p>
+    <p class="prose">In that sense it's a fitting end to your journey. After days immersed in Japan's religious and cultural heritage in Kyoto and Tokyo, you finish in a place where the dominant story isn't imperial capitals or ancient temples, but mountains, Indigenous traditions, frontier settlement, and a deep respect for the natural world. A good note to leave the country on — and a good conversation to have with the kids on the flight home.</p>
+  </div>
 
-<p style="font-size:13px;color:#8B8680;margin:0">Yukomanbetsu, Asahidake Onsen, Higashikawa · Phone: +81 166 97 2555 · Free parking on site · Free WiFi · Photo ID + credit card required at check-in</p>
-</div>
-<div class="hbox"><strong>Ryokan & Onsen — Historical Context</strong>The ryokan tradition dates to the 8th century when imperial messengers required lodging along official routes. The format — tatami rooms, futon, yukata robes, kaiseki dinner, communal or private onsen baths — has remained essentially unchanged for over 1,000 years. Hot spring (<em>onsen</em>) culture is intertwined with both Shinto purification ritual and Buddhist ascetic practice. The mineral content of each spring is classified and named; different springs are said to treat different ailments — a tradition documented in texts from the Nara period (8th century).</div>
-</div></div>
-
-<div class="day-card"><div class="day-hdr"><h3>Sunday, July 19 — Souunkyo Gorge → Sapporo</h3><span class="day-num">Day 11</span></div>
-<div class="day-body">
-<div class="day-summary"><div class="ds-label">✦ For the family — today's plan</div><div class="ds-hl">Waterfalls at Souunkyo Gorge, then a seafood feast in Sapporo.</div><p>A morning soak and breakfast, then Souunkyo Gorge with its Ryusei and Ginga waterfalls, before we drive south to Sapporo. Hokkaido is Japan's seafood capital — crab, sea urchin, salmon roe — so tonight is our big seafood dinner. Early to bed; we fly to Osaka in the morning.</p></div>
-<div class="tblock"><div class="tlabel">Morning · Ryokan Breakfast & Onsen</div>
-<p>Wake at 5:30–6 AM for the outdoor rotenburo before other guests are up. Morning kaiseki breakfast: miso soup, grilled fish, rice, pickles, tamagoyaki, tofu. Allow 2+ hours before checkout.</p>
-</div>
-<div class="tblock"><div class="tlabel">Late Morning · Souunkyo Gorge (層雲峡)</div>
-<p>Drive northeast to <strong>Souunkyo Gorge</strong> (~1.5 hrs from Asahidake) — a dramatic 24km canyon carved through columnar basalt cliffs. Short walks to <strong>Ryusei Falls</strong> (Meteor Falls) and <strong>Ginga Falls</strong> (Milky Way Falls), a pair of twin waterfalls dropping from the cliff face. Optional: <strong>Souunkyo Ropeway + Chairlift</strong> to Kurodake 7th Station for more mountain views (¥2,400 round trip, adds ~1.5 hrs).</p>
-</div>
-<div class="tblock"><div class="tlabel">Afternoon · Drive to Sapporo</div>
-<p>Drive south to Sapporo (~2.5–3 hours via Expressway). Return rental car at Sapporo Station or at a drop-off near your hotel. This is your urban reset after two days in the mountains.</p>
-</div>
-<div class="tblock"><div class="tlabel">Evening · Sapporo Seafood Reward Night</div>
-<p>This is your one Sapporo night — make it count. <strong>Nijo Market</strong> for fresh uni and crab if you didn't hit it on arrival. Then a proper seafood dinner: <strong>Kani Honke</strong> for crab kaiseki (¥8,000–20,000/person, reserve ahead), or the Susukino area for a spread of Hokkaido sashimi and Sapporo draft beer.</p>
-</div>
-<div class="tblock"><div class="tlabel">Accommodation · Tonight · Sapporo Airbnb</div>
-<div style="background:#E8F3EC;border:1.5px solid #2D5A3D;border-left:4px solid #2D5A3D;border-radius:0 3px 3px 0;padding:14px 18px;margin-bottom:8px">
-  <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#2D5A3D;margin-bottom:10px;display:flex;align-items:center;gap:8px">🏠 Sapporo Home — 5LLDK · 150㎡ <span style="background:#2D5A3D;color:white;padding:2px 8px;border-radius:2px;font-size:8px">✓ CONFIRMED</span></div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;font-size:13px;color:var(--ink)">
-    <div><div style="font-family:'Space Mono',monospace;font-size:8px;color:#8B8680;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px">Confirmation</div><strong>HMB524YQDQ</strong></div>
-    <div><div style="font-family:'Space Mono',monospace;font-size:8px;color:#8B8680;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px">Host</div>Cat · 10 guests</div>
-    <div><div style="font-family:'Space Mono',monospace;font-size:8px;color:#8B8680;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px">Check-In</div><strong>Jul 19 · 4:00 PM</strong></div>
-    <div><div style="font-family:'Space Mono',monospace;font-size:8px;color:#8B8680;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px">Check-Out</div><strong>Jul 20 · 10:00 AM</strong></div>
-    <div><div style="font-family:'Space Mono',monospace;font-size:8px;color:#8B8680;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px">Address</div>13-chōme-2-3 Minami 7 Jōnishi</div>
-    <div><div style="font-family:'Space Mono',monospace;font-size:8px;color:#8B8680;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px">Total · 10 guests</div><strong style="color:#2D5A3D">$444.77</strong></div>
-  </div>
-  <div style="background:#F3EDE2;border:1px solid #D4CCC0;border-radius:2px;padding:8px 12px;font-size:12px;color:#5C4200;line-height:1.65">
-    5LLDK · 150㎡ · 2 bathrooms · 2 parking · 20 min walk Susukino · 11 min walk Nishi-11-chome Station (Tozai Line) · From CTS: JR to Shin-Sapporo → Tozai Line to Nishi-11-chome (~1 hr)<br>
-    ⚠ <strong>Free cancel until June 19, 4 PM · Partial refund until July 12, 4 PM</strong>
-  </div>
-</div>
-<p style="font-size:13px;color:#8B8680;margin:6px 0 0">Check in after 4 PM (arrive from Souunkyo). Set early alarm — <strong>ANA NH772 CTS→ITM 8:35 AM</strong> tomorrow · Return Avis rental at CTS by 7:30 AM · Guptas on same flight (no reserved seats — coordinate check-in by 7:15 AM). See Day 12 Kyoto II for full flight details.</p>
-</div>
-</div></div>
-
-<div style="margin-top:20px;padding:16px 20px;background:var(--cream);border-left:3px solid var(--gold);border-radius:0 3px 3px 0">
-<div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Key Logistics</div>
-<div style="font-size:14px;line-height:1.7">
-• <strong>Car rental confirmed</strong> — Avis Honda StepWagon, pick up CTS July 17 3 PM, return July 19 3 PM<br>
-• <strong>Fly into New Chitose (CTS)</strong> — pick up the rental car here, then drive north to Asahikawa (~2 hrs)<br>
-• <strong>You are NOT deeply exploring Sapporo</strong> — just one strong seafood evening on Day 11. Accept this trade-off<br>
-• <strong>Do NOT try to add Otaru</strong> — wrong direction, too much driving<br>
-• <strong>Keep Daisetsuzan hikes light</strong> — the Sugatami Pond Circuit is enough with kids<br>
-• <strong>International Driving Permit required</strong> — get from AAA before departure (1–2 weeks processing)
-</div>
-</div>
-
-</div><!-- /hk-plan-b -->
-
-</div>
-  </div>
-  <div id="ctp-hokkaido-map" class="city-tab-pane ctp-hokkaido">
-    <div class="sec">
-      <div class="kicker">Itinerary Map</div>
-      <h2 class="sec-title">Hokkaido — Key Sites</h2>
-      <p class="sec-sub">New Chitose Airport → Asahikawa base → Biei/Furano → Daisetsuzan National Park → Asahidake Onsen → Souunkyo Gorge → Sapporo.</p>
-      <div id="map-hokkaido" class="map-container"></div>
-    </div>
-  </div>
-  <div id="ctp-hokkaido-restaurants" class="city-tab-pane ctp-hokkaido">
-    <div class="sec">
-      <div class="kicker">Where to Eat</div>
-      <h2 class="sec-title">Hokkaido — Restaurants</h2>
-      
-<p class="sec-sub">Hokkaido is Japan's primary seafood and dairy region. The cuisine is distinct from the rest of Japan — richer, more robust, centered on crab, fresh seafood, lamb, and exceptional dairy.</p>
-<div class="rest-grid">
-<div class="rest-card">
-  <div class="rest-tier rt-high">High End</div>
-  <div class="rest-body">
-    <div class="rest-name">Kani Honke</div>
-    <div class="rest-meta">Sapporo Center · Crab Kaiseki · ¥8,000–20,000</div>
-    <p>The definitive Hokkaido crab restaurant. Whole hairy crab, king crab, snow crab — prepared every possible way across a multi-course kaiseki. Hokkaido crab in July is at summer peak. Once-in-a-trip meal.</p>
-  </div>
-</div>
-<div class="rest-card">
-  <div class="rest-tier rt-mid">Classic</div>
-  <div class="rest-body">
-    <div class="rest-name">Daruma Jingisukan</div>
-    <div class="rest-meta">Susukino · BBQ Lamb · ¥2,000–3,500</div>
-    <p>Jingisukan — Hokkaido's signature dish. Lamb and vegetables grilled on a dome-shaped iron grill at your table. The Sapporo Susukino branch is the historic original. Loud, smoky, essential.</p>
-  </div>
-</div>
-<div class="rest-card">
-  <div class="rest-tier rt-mid">Ryokan Kaiseki</div>
-  <div class="rest-body">
-    <div class="rest-name">K's House Onsen / La Vista Daisetsuzan</div>
-    <div class="rest-meta">Asahidake Onsen · Kaiseki · Included in ryokan stay</div>
-    <p>The evening kaiseki at the Asahidake Onsen ryokan uses Hokkaido seasonal ingredients — mountain vegetables, Daisetsuzan spring water, local dairy, and fresh seafood prepared in the northern register. La Vista's breakfast buffet features Hokkaido scallops, salmon roe, and Toro salmon.</p>
-  </div>
-</div>
-<div class="rest-card">
-  <div class="rest-tier rt-local">Miso Ramen</div>
-  <div class="rest-body">
-    <div class="rest-name">Suage+ at Ramen Republic</div>
-    <div class="rest-meta">Sapporo Station (Esta B1) · Miso Ramen · ¥1,000–1,500</div>
-    <p>Sapporo miso ramen — thick, rich, savory broth with butter and corn — is the definitive Hokkaido bowl. Ramen Republic on the 10th floor of Esta mall puts 8 of Sapporo's best under one roof. Suage+ is the strongest pick.</p>
-  </div>
-</div>
-<div class="rest-card">
-  <div class="rest-tier rt-local">Coffee</div>
-  <div class="rest-body">
-    <div class="rest-name">Morihiko Coffee</div>
-    <div class="rest-meta">Multiple Sapporo locations · Specialty Coffee</div>
-    <p>Sapporo's most celebrated coffee culture — small collective of refined café spaces. Exceptional pour-overs and beautiful interiors. Visit for afternoon coffee before the flight home tomorrow.</p>
-  </div>
-</div>
-</div>
-    </div>
-  </div>
-</div>
+</div><!-- /#hokkaido -->
 
 <div id="kyoto-ii" class="pane">
   <div class="city-hdr">
@@ -7886,6 +7830,13 @@ function closeMobMenu() {
     });
   });
 })();
+
+/* Plan A / B toggle — Hokkaido route options */
+function showPlan(p){
+  document.querySelectorAll('.plan-btn').forEach(function(b){ b.classList.toggle('on', b.dataset.plan===p); });
+  document.getElementById('plan-a').classList.toggle('on', p==='a');
+  document.getElementById('plan-b').classList.toggle('on', p==='b');
+}
 </script>
 
 </div><!-- /main -->
